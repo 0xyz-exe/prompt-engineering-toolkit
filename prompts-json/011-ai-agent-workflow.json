@@ -1,0 +1,37 @@
+{
+  "id": "PE-011",
+  "title": "AI Agent Workflow Architect",
+  "version": "1.0.0",
+  "category": "ai-prompt-engineering",
+  "description": "Design autonomous AI agent workflows with tool usage, delegation, context management, verification, and error recovery.",
+  "prompt": "Act as a Senior AI Systems Architect specializing in autonomous agent design.\n\nYour task is to design an AI agent workflow for:\n\nAGENT PURPOSE: {agent_purpose}\nAVAILABLE TOOLS: {available_tools}\nCONSTRAINTS: {constraints}\n\n## Agent Workflow Design\n\n### 1. Agent Identity and Role\n- What is the agent's primary responsibility?\n- What expertise should it have?\n- What are its boundaries and limitations?\n- When should it defer to humans?\n\n### 2. Task Decomposition\n- How to break complex tasks into subtasks\n- When to work sequentially vs. in parallel\n- How to identify dependencies\n- When to delegate vs. execute directly\n\n### 3. Context Management\n- What context is needed for each task?\n- How to maintain context across subtasks?\n- When to refresh or discard context?\n- How to avoid context bloat?\n\n### 4. Tool Usage Strategy\n\n#### Tool Selection\n- When to use which tools\n- How to batch independent tool calls\n- When to serialize dependent calls\n- Fallback strategies when tools fail\n\n#### Tool Safety\n- Never execute untrusted code\n- Validate tool inputs\n- Verify tool outputs\n- Respect permission boundaries\n- Never bypass security controls\n\n### 5. Decision Making\n- When to act autonomously\n- When to ask for clarification\n- When to request permission\n- How to handle ambiguity\n- When to make reasonable assumptions\n\n### 6. Verification and Validation\n- How to verify each step succeeded\n- What evidence to collect\n- How to validate outputs\n- When to declare success vs. failure\n- Never claim unverified results\n\n### 7. Error Handling and Recovery\n\n#### Error Detection\n- Monitor tool execution results\n- Detect logical errors\n- Identify resource limitations\n- Recognize out-of-scope requests\n\n#### Recovery Strategies\n- Retry with backoff for transient failures\n- Try alternative approaches for persistent failures\n- Escalate to human when blocked\n- Preserve partial progress\n- Never loop indefinitely\n\n#### Failure Patterns to Avoid\n- Repeating the same failed operation\n- Hallucinating success after failure\n- Hiding errors\n- Claiming unverified results\n\n### 8. Quality Assurance\n- How to test the workflow\n- What to verify before completion\n- How to measure success\n- What documentation to produce\n\n### 9. Human-in-the-Loop\n- When to involve humans\n- How to present decisions for approval\n- What information humans need\n- How to incorporate human feedback\n\n### 10. Resource Management\n- Token budget management\n- API rate limit handling\n- Compute resource awareness\n- Cost considerations\n\n### 11. Security and Safety\n- Input validation\n- Output sanitization\n- Secret protection\n- Permission enforcement\n- Audit logging\n\n### 12. Workflow States\n\nDefine clear states:\n- **Planning**: Analyzing requirements\n- **Executing**: Performing actions\n- **Verifying**: Checking results\n- **Blocked**: Waiting for input/resources\n- **Failed**: Unrecoverable error\n- **Complete**: Goal achieved\n\n## Agent Workflow Output Format\n\n### Workflow Specification\n\n```yaml\nagent:\n  name: [Agent Name]\n  role: [Primary Role]\n  capabilities: [List]\n  limitations: [List]\n\nworkflow:\n  phases:\n    - name: [Phase Name]\n      steps:\n        - action: [What to do]\n          tools: [Tools needed]\n          verification: [How to verify]\n          error_handling: [Recovery strategy]\n\n  decision_points:\n    - condition: [When this occurs]\n      action: [What to do]\n\n  human_checkpoints:\n    - stage: [When]\n      reason: [Why human input needed]\n\nsuccess_criteria:\n  - [Measurable criterion]\n\nfailure_conditions:\n  - [What constitutes failure]\n```\n\n### Implementation Guidance\n[How to implement this workflow]\n\n### Testing Strategy\n[How to test the agent]\n\n### Known Limitations\n[What the agent cannot do]\n\n## Design Principles\n- Autonomous where safe, human-in-loop where risky\n- Verify, don't assume\n- Fail fast and clearly\n- Preserve progress on partial completion\n- Make decisions explicit and auditable\n- Handle errors gracefully\n- Respect permission and safety boundaries\n\n## Definition of Done\n- Workflow covers all phases\n- Decision points are defined\n- Error handling is specified\n- Verification steps are included\n- Human checkpoints are identified\n- Success criteria are measurable",
+  "inputs": [
+    {
+      "name": "agent_purpose",
+      "type": "string",
+      "required": true,
+      "description": "What the agent should accomplish"
+    },
+    {
+      "name": "available_tools",
+      "type": "string",
+      "required": true,
+      "description": "Tools the agent can use"
+    },
+    {
+      "name": "constraints",
+      "type": "string",
+      "required": false,
+      "description": "Constraints and limitations"
+    }
+  ],
+  "output_format": "yaml",
+  "quality_checks": [
+    "Workflow is complete and logical",
+    "Error handling is comprehensive",
+    "Verification steps are included",
+    "Human checkpoints are appropriate",
+    "Safety boundaries are respected"
+  ],
+  "tags": ["ai-agents", "workflow", "automation", "architecture"]
+}

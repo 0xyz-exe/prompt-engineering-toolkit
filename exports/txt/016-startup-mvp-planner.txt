@@ -1,0 +1,281 @@
+# Startup MVP Planner
+ID: PE-016 | Version: 1.0.0 | Category: business-productivity
+
+Translate startup ideas into prioritized MVP backlogs with architecture, milestones, and launch checklists.
+
+================================================================================
+
+Act as a Product Manager and Technical Architect specializing in MVP development.
+
+Your task is to plan an MVP for:
+
+PRODUCT IDEA: {product_idea}
+TARGET LAUNCH: {target_launch_date}
+RESOURCES: {available_resources}
+
+## MVP Planning Framework
+
+### 1. MVP Definition
+
+#### Core Value Proposition
+- What single problem does this MVP solve?
+- What is the one metric that matters most?
+- What is the minimum viable experience?
+
+#### MVP Philosophy
+- Build the smallest thing that validates the core hypothesis
+- Focus on learning, not features
+- Perfect is the enemy of good
+- Ship fast, iterate faster
+
+### 2. User Stories and Prioritization
+
+#### Epic-Level User Stories
+```
+Epic: [User Type]
+As a [user type]
+I want [capability]
+So that [benefit]
+
+Acceptance Criteria:
+- [Criterion 1]
+- [Criterion 2]
+```
+
+#### Prioritization Framework (MoSCoW)
+
+**Must Have (MVP Launch Blockers)**
+- Features without which the product doesn't work
+- Core value proposition
+- Critical user flows
+
+**Should Have (Important but not MVP blockers)**
+- Features that improve experience
+- Nice-to-have workflows
+- Can launch without but plan for v1.1
+
+**Could Have (Future features)**
+- Features that add value but low priority
+- Deferred to post-launch
+
+**Won't Have (Explicitly excluded)**
+- Features explicitly out of scope
+- Prevents scope creep
+
+### 3. Technical Architecture
+
+#### Architecture Decisions
+- **Frontend:** [Technology choice and rationale]
+- **Backend:** [Technology choice and rationale]
+- **Database:** [Technology choice and rationale]
+- **Hosting:** [Platform and rationale]
+- **Authentication:** [Method]
+- **Payment:** [If applicable]
+
+#### Architecture Principles for MVP
+- Use proven technologies the team knows
+- Minimize infrastructure complexity
+- Prefer managed services over self-hosting
+- Build for today's scale, not future scale
+- Monolith over microservices for MVP
+- Use third-party services where possible
+
+### 4. Data Model
+
+#### Core Entities
+```
+Entity: User
+- Fields: [Key fields]
+- Relationships: [Related entities]
+
+Entity: [Core Entity 2]
+...
+```
+
+### 5. Feature Specifications
+
+For each MVP feature:
+
+#### Feature: [Name]
+**Priority:** Must/Should/Could
+**Effort:** S/M/L/XL
+**User Story:** [Story]
+**Acceptance Criteria:**
+- [ ] [Criterion]
+- [ ] [Criterion]
+
+**Technical Notes:**
+[Implementation guidance]
+
+**Dependencies:**
+[What must be done first]
+
+### 6. Development Roadmap
+
+#### Phase 1: Foundation (Weeks 1-2)
+- Project setup
+- Core architecture
+- Authentication
+- Database schema
+- Basic CRUD operations
+
+#### Phase 2: Core Features (Weeks 3-5)
+- [Key feature 1]
+- [Key feature 2]
+- [Key feature 3]
+
+#### Phase 3: Polish (Week 6)
+- Error handling
+- Loading states
+- Responsive design
+- Basic analytics
+
+#### Phase 4: Testing (Week 7)
+- E2E tests for critical flows
+- Bug fixes
+- Performance optimization
+
+#### Phase 5: Launch Prep (Week 8)
+- Production deployment
+- Documentation
+- Beta testing
+- Launch
+
+### 7. Milestones and Deadlines
+
+**Milestone 1: Technical Foundation** (Date)
+- Deliverables: [List]
+- Success Criteria: [Criteria]
+
+**Milestone 2: Feature Complete** (Date)
+- Deliverables: [List]
+- Success Criteria: [Criteria]
+
+**Milestone 3: Beta Launch** (Date)
+- Deliverables: [List]
+- Success Criteria: [Criteria]
+
+**Milestone 4: Public Launch** (Date)
+- Deliverables: [List]
+- Success Criteria: [Criteria]
+
+### 8. Launch Checklist
+
+#### Pre-Launch Technical
+- [ ] All critical user flows work end-to-end
+- [ ] Authentication and authorization tested
+- [ ] Payment integration tested (if applicable)
+- [ ] Database backups configured
+- [ ] Monitoring and alerting set up
+- [ ] Error tracking configured (Sentry, etc.)
+- [ ] SSL/HTTPS configured
+- [ ] Performance tested
+- [ ] Security audit completed
+- [ ] GDPR/privacy compliance checked
+
+#### Pre-Launch Product
+- [ ] Onboarding flow tested
+- [ ] Help documentation written
+- [ ] Terms of Service and Privacy Policy
+- [ ] Contact/support channel established
+- [ ] Pricing page (if applicable)
+- [ ] Landing page optimized
+
+#### Pre-Launch Marketing
+- [ ] Beta testers recruited
+- [ ] Launch announcement prepared
+- [ ] Social media accounts created
+- [ ] Analytics tracking configured
+- [ ] Email marketing set up
+
+### 9. Success Metrics
+
+#### Launch Week Metrics
+- Signups: [Target]
+- Activation rate: [Target]
+- Core action completion: [Target]
+
+#### Month 1 Metrics
+- Active users: [Target]
+- Retention (D7): [Target]
+- NPS: [Target]
+- Key user action: [Target]
+
+#### Learning Goals
+- [Hypothesis to validate]
+- [Question to answer]
+
+### 10. Risk Mitigation
+
+#### Technical Risks
+- Risk: [Description]
+- Mitigation: [Strategy]
+- Contingency: [Backup plan]
+
+#### Product Risks
+- Risk: [Description]
+- Mitigation: [Strategy]
+
+### 11. Post-Launch Plan
+
+#### Week 1 Post-Launch
+- Monitor errors and performance
+- Collect user feedback
+- Quick bug fixes
+
+#### Month 1 Post-Launch
+- Analyze usage data
+- Prioritize v1.1 features
+- Optimize conversion funnels
+
+### 12. Resource Allocation
+
+**Team:**
+- [Role]: [Time allocation]
+
+**Budget:**
+- Development: [Estimate]
+- Infrastructure: [Monthly]
+- Third-party services: [Monthly]
+- Marketing: [One-time]
+
+## Output Format
+
+### MVP Specification
+[Complete MVP definition]
+
+### Prioritized Backlog
+[Feature list with priorities]
+
+### 8-Week Roadmap
+[Week-by-week plan]
+
+### Launch Checklist
+[Checklist]
+
+### Success Metrics
+[Metrics and targets]
+
+## Definition of Done
+- MVP scope is clearly defined
+- Features are prioritized
+- Architecture is specified
+- Roadmap is realistic
+- Milestones are measurable
+- Launch checklist is complete
+
+
+REQUIRED INPUTS:
+
+- product_idea (string, REQUIRED): Product idea to plan
+- target_launch_date (string, optional): Target launch date or timeframe
+- available_resources (string, optional): Team size, budget, constraints
+
+
+QUALITY CHECKS:
+
+- MVP scope is minimal and focused
+- Features are prioritized correctly
+- Roadmap is realistic
+- Launch checklist is comprehensive
+- Success metrics are defined

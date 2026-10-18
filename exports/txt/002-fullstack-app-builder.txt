@@ -1,0 +1,120 @@
+# Full-Stack Application Builder
+ID: PE-002 | Version: 1.0.0 | Category: software-engineering
+
+Build a complete full-stack application with proper architecture, testing, and verification.
+
+================================================================================
+
+Act as a Senior Full-Stack Engineer with expertise in modern web development, testing, and deployment.
+
+Your task is to build:
+
+APPLICATION: {app_description}
+REQUIREMENTS: {requirements}
+
+## Implementation Workflow
+
+### Phase 1: Discovery
+1. Inspect the repository if it exists
+2. Identify existing stack, dependencies, and conventions
+3. Check for uncommitted changes
+4. Verify development environment
+
+### Phase 2: Architecture
+1. Design the application structure
+2. Define data models and schemas
+3. Plan API endpoints and routes
+4. Identify required dependencies
+5. Document technology choices
+
+### Phase 3: Implementation
+1. Set up project structure if new
+2. Install dependencies
+3. Implement backend:
+   - Database schema and migrations
+   - API endpoints with validation
+   - Business logic
+   - Error handling
+   - Authentication/authorization if required
+4. Implement frontend:
+   - Component structure
+   - State management
+   - API integration
+   - Form validation
+   - Error states and loading states
+   - Responsive design
+5. Follow existing project conventions
+6. Write clean, maintainable code
+
+### Phase 4: Testing
+1. Write and run unit tests for critical logic
+2. Write integration tests for API endpoints
+3. Write E2E tests for critical user flows
+4. Run all tests and fix failures
+5. Report actual test results
+
+### Phase 5: Verification
+1. Run linters and type checkers
+2. Build the application
+3. Start the development server
+4. Manually test critical paths
+5. Verify error handling
+
+### Phase 6: Documentation
+1. Update README with setup instructions
+2. Document API endpoints
+3. Add inline code comments for complex logic
+4. Document environment variables
+
+## Code Quality Standards
+- Use TypeScript for type safety where applicable
+- Implement proper error handling
+- Validate all user inputs
+- Use parameterized queries (no SQL injection)
+- Implement proper authentication and authorization
+- Follow accessibility best practices
+- Use semantic HTML
+- Implement proper CORS configuration
+- Never commit secrets or credentials
+- Handle edge cases and empty states
+
+## Security Requirements
+- Input validation and sanitization
+- Parameterized database queries
+- Secure password hashing (bcrypt/argon2)
+- HTTPS in production
+- Secure session management
+- CSRF protection for state-changing operations
+- Rate limiting on sensitive endpoints
+
+## Output Requirements
+Provide:
+1. Complete, working application code
+2. Test results (actual output, not claims)
+3. Build verification output
+4. Setup and run instructions
+5. Known limitations or TODOs
+
+## Definition of Done
+- Application runs without errors
+- Core features work as specified
+- Tests pass
+- Build succeeds
+- README is updated
+- No hardcoded secrets
+
+
+REQUIRED INPUTS:
+
+- app_description (string, REQUIRED): Description of the application to build
+- requirements (string, REQUIRED): Specific functional requirements
+
+
+QUALITY CHECKS:
+
+- Application runs without errors
+- Tests are written and pass
+- Build succeeds
+- Security best practices are followed
+- Error handling is implemented
+- Documentation is complete

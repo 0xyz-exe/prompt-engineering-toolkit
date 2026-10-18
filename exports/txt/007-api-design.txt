@@ -1,0 +1,190 @@
+# API Design and Documentation
+ID: PE-007 | Version: 1.0.0 | Category: software-engineering
+
+Design REST APIs with complete specifications including endpoints, schemas, authentication, validation, errors, and documentation.
+
+================================================================================
+
+Act as a Senior Backend Engineer and API Architect.
+
+Your task is to design a REST API for:
+
+SERVICE: {service_name}
+PURPOSE: {service_purpose}
+
+## API Design Structure
+
+### 1. Base URL and Versioning
+- Base URL: https://api.example.com/v1
+- API versioning strategy (URL-based, header-based)
+- Environment endpoints (dev, staging, production)
+
+### 2. Authentication
+- Authentication method (JWT, OAuth2, API keys)
+- Token format and validation
+- Refresh token mechanism
+- Authentication endpoints (/auth/login, /auth/refresh)
+
+### 3. Authorization
+- Permission model (RBAC, ABAC)
+- Resource ownership rules
+- Scope definitions
+
+### 4. Endpoints
+For each endpoint provide:
+
+#### Endpoint: [METHOD] [PATH]
+- Description: [What it does]
+- Authentication: [Required/Optional]
+- Authorization: [Required permissions]
+- Rate Limit: [Requests per time window]
+
+**Request:**
+- Path parameters: [name: type, description]
+- Query parameters: [name: type, required?, description]
+- Headers: [required headers]
+- Body schema: [JSON schema or example]
+
+**Response:**
+- Success (200/201): [schema and example]
+- Client errors (400/401/403/404): [schema and examples]
+- Server errors (500): [schema and example]
+
+**Example Request:**
+```http
+GET /api/v1/resource?param=value HTTP/1.1
+Authorization: Bearer <token>
+Content-Type: application/json
+```
+
+**Example Response:**
+```json
+{
+  "data": {},
+  "meta": {}
+}
+```
+
+### 5. Request Validation
+- Required fields
+- Data types
+- Format constraints (email, URL, UUID)
+- Range constraints (min, max)
+- String length limits
+- Custom validation rules
+
+### 6. Error Handling
+Standardized error format:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable message",
+    "details": [],
+    "request_id": "uuid"
+  }
+}
+```
+
+Error codes:
+- 400 Bad Request: Invalid input
+- 401 Unauthorized: Missing/invalid authentication
+- 403 Forbidden: Insufficient permissions
+- 404 Not Found: Resource doesn't exist
+- 409 Conflict: Resource conflict
+- 422 Unprocessable Entity: Validation failed
+- 429 Too Many Requests: Rate limit exceeded
+- 500 Internal Server Error: Server error
+- 503 Service Unavailable: Temporary unavailability
+
+### 7. Pagination
+For list endpoints:
+- Cursor-based or offset-based
+- Query parameters: limit, offset/cursor
+- Response metadata: total, has_more, next_cursor
+
+### 8. Filtering and Sorting
+- Filter syntax: ?filter[field]=value
+- Sort syntax: ?sort=-created_at
+- Supported fields for filtering
+- Supported fields for sorting
+
+### 9. Response Format
+Standardized success response:
+```json
+{
+  "data": {},
+  "meta": {
+    "request_id": "uuid",
+    "timestamp": "ISO8601"
+  }
+}
+```
+
+### 10. Rate Limiting
+- Rate limit per endpoint
+- Rate limit headers:
+  - X-RateLimit-Limit
+  - X-RateLimit-Remaining
+  - X-RateLimit-Reset
+- Rate limit error response
+
+### 11. Idempotency
+- Idempotent operations (PUT, DELETE)
+- Idempotency keys for POST requests
+- Idempotency-Key header
+
+### 12. Webhooks (if applicable)
+- Webhook endpoints
+- Event types
+- Payload format
+- Signature verification
+- Retry logic
+
+### 13. API Documentation
+- OpenAPI/Swagger specification
+- Interactive API explorer
+- Code examples in multiple languages
+- Changelog
+
+## API Design Principles
+- RESTful conventions
+- Resource-oriented URLs
+- Use HTTP methods correctly (GET, POST, PUT, PATCH, DELETE)
+- Use appropriate HTTP status codes
+- Consistent naming (snake_case or camelCase, not mixed)
+- Versioning strategy
+- Backward compatibility
+- Meaningful error messages
+
+## Security Checklist
+- HTTPS only
+- Input validation
+- SQL injection prevention
+- Rate limiting
+- CORS configuration
+- No sensitive data in URLs
+- Secure credential storage
+
+## Definition of Done
+- All CRUD operations are defined
+- Request/response schemas are complete
+- Error cases are documented
+- Authentication/authorization is specified
+- Rate limits are defined
+- Examples are provided
+
+
+REQUIRED INPUTS:
+
+- service_name (string, REQUIRED): Name of the service or API
+- service_purpose (string, REQUIRED): What the API does and who uses it
+
+
+QUALITY CHECKS:
+
+- RESTful conventions are followed
+- All endpoints have complete request/response specs
+- Error handling is comprehensive
+- Security considerations are addressed
+- Examples are provided for each endpoint

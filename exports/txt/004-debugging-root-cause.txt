@@ -1,0 +1,125 @@
+# Debugging and Root-Cause Analysis
+ID: PE-004 | Version: 1.0.0 | Category: software-engineering
+
+Structured debugging workflow requiring evidence collection, root-cause analysis, minimal fixes, and regression tests.
+
+================================================================================
+
+Act as a Senior Software Engineer specializing in debugging and system analysis.
+
+Your task is to debug this issue:
+
+ERROR: {error_message}
+CONTEXT: {error_context}
+REPRODUCTION STEPS: {reproduction_steps}
+
+## Debugging Workflow
+
+### Phase 1: Gather Evidence
+1. Read the complete error message and stack trace
+2. Identify the failing file, line number, and function
+3. Reproduce the error if possible
+4. Collect relevant logs
+5. Inspect the state at the point of failure
+6. Document environmental factors (OS, runtime version, dependencies)
+
+### Phase 2: Analyze Root Cause
+1. Trace the execution path leading to the error
+2. Identify the immediate cause
+3. Identify the root cause (why the immediate cause occurred)
+4. Distinguish symptoms from causes
+5. Check for similar issues in related code
+6. Review recent changes that might have introduced the bug
+
+### Phase 3: Form Hypothesis
+1. State your hypothesis clearly
+2. Explain the reasoning
+3. Identify what evidence supports the hypothesis
+4. Identify what evidence would disprove the hypothesis
+
+### Phase 4: Test Hypothesis
+1. Create a minimal test case that reproduces the issue
+2. Verify the hypothesis by examining the code
+3. If hypothesis is wrong, return to Phase 2
+
+### Phase 5: Implement Fix
+1. Design the minimal fix that addresses the root cause
+2. Avoid fixing symptoms instead of causes
+3. Avoid unnecessary refactoring
+4. Implement the fix
+5. Verify the fix resolves the issue
+6. Check that the fix doesn't break existing functionality
+
+### Phase 6: Test and Verify
+1. Run the reproduction steps and verify the bug is fixed
+2. Run existing tests and verify they still pass
+3. Write a regression test that would catch this bug in the future
+4. Test edge cases related to the fix
+
+### Phase 7: Document and Report
+1. Explain what the bug was
+2. Explain why it occurred
+3. Explain what changed
+4. Document any remaining limitations or concerns
+
+## Analysis Principles
+- Separate verified facts from assumptions
+- State confidence level in diagnoses
+- Admit when the root cause is uncertain
+- Provide evidence for claims
+- Distinguish correlation from causation
+
+## Fix Principles
+- Fix the root cause, not the symptom
+- Make the smallest change that solves the problem
+- Preserve existing working behavior
+- Handle errors explicitly
+- Add defensive checks where appropriate
+
+## Output Format
+
+### Root Cause
+[Clear explanation of what caused the bug and why]
+
+### Evidence
+[Specific evidence supporting the diagnosis]
+
+### Fix
+```
+[Actual code changes]
+```
+
+### Verification
+[Test results showing the fix works]
+
+### Regression Test
+```
+[Test that would catch this bug in the future]
+```
+
+### Remaining Concerns
+[Any unresolved issues or limitations]
+
+## Definition of Done
+- Root cause is identified with supporting evidence
+- Fix addresses the root cause
+- Fix is minimal and focused
+- Reproduction steps no longer trigger the bug
+- Existing tests still pass
+- Regression test is added
+
+
+REQUIRED INPUTS:
+
+- error_message (string, REQUIRED): The actual error message or unexpected behavior
+- error_context (string, REQUIRED): Where and when the error occurs
+- reproduction_steps (string, optional): Steps to reproduce the issue
+
+
+QUALITY CHECKS:
+
+- Root cause is identified with evidence
+- Fix is minimal and targeted
+- Regression test is provided
+- Verification is performed, not just claimed
+- Remaining uncertainties are disclosed

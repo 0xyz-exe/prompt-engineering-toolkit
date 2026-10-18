@@ -1,0 +1,31 @@
+{
+  "id": "PE-007",
+  "title": "API Design and Documentation",
+  "version": "1.0.0",
+  "category": "software-engineering",
+  "description": "Design REST APIs with complete specifications including endpoints, schemas, authentication, validation, errors, and documentation.",
+  "prompt": "Act as a Senior Backend Engineer and API Architect.\n\nYour task is to design a REST API for:\n\nSERVICE: {service_name}\nPURPOSE: {service_purpose}\n\n## API Design Structure\n\n### 1. Base URL and Versioning\n- Base URL: https://api.example.com/v1\n- API versioning strategy (URL-based, header-based)\n- Environment endpoints (dev, staging, production)\n\n### 2. Authentication\n- Authentication method (JWT, OAuth2, API keys)\n- Token format and validation\n- Refresh token mechanism\n- Authentication endpoints (/auth/login, /auth/refresh)\n\n### 3. Authorization\n- Permission model (RBAC, ABAC)\n- Resource ownership rules\n- Scope definitions\n\n### 4. Endpoints\nFor each endpoint provide:\n\n#### Endpoint: [METHOD] [PATH]\n- Description: [What it does]\n- Authentication: [Required/Optional]\n- Authorization: [Required permissions]\n- Rate Limit: [Requests per time window]\n\n**Request:**\n- Path parameters: [name: type, description]\n- Query parameters: [name: type, required?, description]\n- Headers: [required headers]\n- Body schema: [JSON schema or example]\n\n**Response:**\n- Success (200/201): [schema and example]\n- Client errors (400/401/403/404): [schema and examples]\n- Server errors (500): [schema and example]\n\n**Example Request:**\n```http\nGET /api/v1/resource?param=value HTTP/1.1\nAuthorization: Bearer <token>\nContent-Type: application/json\n```\n\n**Example Response:**\n```json\n{\n  \"data\": {},\n  \"meta\": {}\n}\n```\n\n### 5. Request Validation\n- Required fields\n- Data types\n- Format constraints (email, URL, UUID)\n- Range constraints (min, max)\n- String length limits\n- Custom validation rules\n\n### 6. Error Handling\nStandardized error format:\n```json\n{\n  \"error\": {\n    \"code\": \"ERROR_CODE\",\n    \"message\": \"Human-readable message\",\n    \"details\": [],\n    \"request_id\": \"uuid\"\n  }\n}\n```\n\nError codes:\n- 400 Bad Request: Invalid input\n- 401 Unauthorized: Missing/invalid authentication\n- 403 Forbidden: Insufficient permissions\n- 404 Not Found: Resource doesn't exist\n- 409 Conflict: Resource conflict\n- 422 Unprocessable Entity: Validation failed\n- 429 Too Many Requests: Rate limit exceeded\n- 500 Internal Server Error: Server error\n- 503 Service Unavailable: Temporary unavailability\n\n### 7. Pagination\nFor list endpoints:\n- Cursor-based or offset-based\n- Query parameters: limit, offset/cursor\n- Response metadata: total, has_more, next_cursor\n\n### 8. Filtering and Sorting\n- Filter syntax: ?filter[field]=value\n- Sort syntax: ?sort=-created_at\n- Supported fields for filtering\n- Supported fields for sorting\n\n### 9. Response Format\nStandardized success response:\n```json\n{\n  \"data\": {},\n  \"meta\": {\n    \"request_id\": \"uuid\",\n    \"timestamp\": \"ISO8601\"\n  }\n}\n```\n\n### 10. Rate Limiting\n- Rate limit per endpoint\n- Rate limit headers:\n  - X-RateLimit-Limit\n  - X-RateLimit-Remaining\n  - X-RateLimit-Reset\n- Rate limit error response\n\n### 11. Idempotency\n- Idempotent operations (PUT, DELETE)\n- Idempotency keys for POST requests\n- Idempotency-Key header\n\n### 12. Webhooks (if applicable)\n- Webhook endpoints\n- Event types\n- Payload format\n- Signature verification\n- Retry logic\n\n### 13. API Documentation\n- OpenAPI/Swagger specification\n- Interactive API explorer\n- Code examples in multiple languages\n- Changelog\n\n## API Design Principles\n- RESTful conventions\n- Resource-oriented URLs\n- Use HTTP methods correctly (GET, POST, PUT, PATCH, DELETE)\n- Use appropriate HTTP status codes\n- Consistent naming (snake_case or camelCase, not mixed)\n- Versioning strategy\n- Backward compatibility\n- Meaningful error messages\n\n## Security Checklist\n- HTTPS only\n- Input validation\n- SQL injection prevention\n- Rate limiting\n- CORS configuration\n- No sensitive data in URLs\n- Secure credential storage\n\n## Definition of Done\n- All CRUD operations are defined\n- Request/response schemas are complete\n- Error cases are documented\n- Authentication/authorization is specified\n- Rate limits are defined\n- Examples are provided",
+  "inputs": [
+    {
+      "name": "service_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the service or API"
+    },
+    {
+      "name": "service_purpose",
+      "type": "string",
+      "required": true,
+      "description": "What the API does and who uses it"
+    }
+  ],
+  "output_format": "structured",
+  "quality_checks": [
+    "RESTful conventions are followed",
+    "All endpoints have complete request/response specs",
+    "Error handling is comprehensive",
+    "Security considerations are addressed",
+    "Examples are provided for each endpoint"
+  ],
+  "tags": ["api", "backend", "rest", "documentation"]
+}

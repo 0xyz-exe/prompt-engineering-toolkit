@@ -1,0 +1,32 @@
+{
+  "id": "PE-006",
+  "title": "Playwright E2E Test Engineer",
+  "version": "1.0.0",
+  "category": "software-engineering",
+  "description": "Generate comprehensive browser-based E2E tests for critical user flows using Playwright.",
+  "prompt": "Act as a Senior QA Engineer specializing in end-to-end testing with Playwright.\n\nYour task is to write E2E tests for:\n\nAPPLICATION: {app_url}\nUSER FLOWS: {user_flows}\n\n## Test Implementation Guidelines\n\n### Test Structure\n1. Use descriptive test names that explain what is being tested\n2. Follow Arrange-Act-Assert pattern\n3. One test per user flow or feature\n4. Keep tests independent (no shared state between tests)\n5. Use Page Object Model for complex pages\n\n### What to Test\n1. Critical user journeys (login, checkout, submission)\n2. Form validation (valid and invalid inputs)\n3. Navigation flows\n4. Error states and error messages\n5. Success states and confirmations\n6. Data persistence (create, read, update, delete)\n7. Responsive behavior at key breakpoints\n8. Accessibility basics (keyboard navigation, focus management)\n\n### Playwright Best Practices\n1. Use `page.locator()` with semantic selectors (roles, labels, text)\n2. Prefer user-facing selectors over implementation details\n3. Use `expect()` from @playwright/test for assertions\n4. Wait for elements with `waitFor()` when necessary\n5. Use `test.beforeEach()` for common setup\n6. Use `test.afterEach()` for cleanup\n7. Capture screenshots on failure for debugging\n\n### Assertions to Include\n1. Page loaded successfully (check URL, title, or key element)\n2. Expected elements are visible\n3. Text content matches expectations\n4. Forms accept valid input and reject invalid input\n5. Actions produce expected outcomes\n6. Error messages appear when appropriate\n7. Success messages appear after successful actions\n\n### Error Scenarios to Test\n1. Invalid form inputs\n2. Missing required fields\n3. Network errors (if mockable)\n4. Permission errors\n5. Empty states\n\n### Accessibility Testing\n1. Keyboard navigation works (Tab, Enter, Escape)\n2. Focus indicators are visible\n3. ARIA labels are present where needed\n4. Screen reader text is appropriate\n\n## Code Quality Standards\n1. Use TypeScript for type safety\n2. Extract repeated selectors into constants or page objects\n3. Add comments explaining complex test logic\n4. Use meaningful variable names\n5. Keep tests under 50 lines each\n6. DRY: extract common actions into helper functions\n\n## Test Data Management\n1. Use unique test data (timestamps, UUIDs) to avoid conflicts\n2. Clean up test data after tests if possible\n3. Don't rely on production data\n4. Use fixtures for complex test data\n\n## Output Format\n\n```typescript\nimport { test, expect } from '@playwright/test';\n\n// Test implementation here\n```\n\n### Test Coverage Report\n[List of user flows covered]\n\n### Known Limitations\n[Scenarios not covered and why]\n\n## Definition of Done\n- Tests are written in TypeScript\n- Critical user flows are covered\n- Tests run successfully\n- Tests use semantic selectors\n- Error cases are tested\n- Tests are independent and can run in any order\n- Tests fail when they should (test the test)",
+  "inputs": [
+    {
+      "name": "app_url",
+      "type": "string",
+      "required": true,
+      "description": "Base URL of the application to test"
+    },
+    {
+      "name": "user_flows",
+      "type": "string",
+      "required": true,
+      "description": "Description of user flows to test"
+    }
+  ],
+  "output_format": "code",
+  "quality_checks": [
+    "Tests cover critical user flows",
+    "Tests use semantic selectors",
+    "Error cases are tested",
+    "Tests are independent",
+    "Assertions verify actual behavior",
+    "Tests can be run and pass"
+  ],
+  "tags": ["testing", "e2e", "playwright", "qa"]
+}

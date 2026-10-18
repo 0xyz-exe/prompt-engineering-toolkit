@@ -1,0 +1,32 @@
+{
+  "id": "PE-001",
+  "title": "PRD Generator",
+  "version": "1.0.0",
+  "category": "software-engineering",
+  "description": "Generate a comprehensive Product Requirements Document covering problem statement, users, goals, requirements, constraints, and success metrics.",
+  "prompt": "Act as a Senior Product Manager and Technical Architect.\n\nYour task is to generate a comprehensive Product Requirements Document (PRD) for:\n\nPRODUCT: {product_name}\nOVERVIEW: {product_overview}\n\nThe PRD must include:\n\n## 1. Problem Statement\n- What problem does this solve?\n- Who experiences this problem?\n- Current alternatives and their limitations\n\n## 2. Target Users\n- Primary user personas\n- User needs and pain points\n- Usage context and environment\n\n## 3. Goals and Non-Goals\n- What this product WILL accomplish\n- What this product will NOT do (explicit exclusions)\n- Success criteria\n\n## 4. User Stories\n- Format: As a [user], I want [capability] so that [benefit]\n- Cover critical user journeys\n- Include edge cases and error scenarios\n\n## 5. Functional Requirements\n- Core features with detailed specifications\n- User interactions and workflows\n- Data requirements\n- Integration points\n\n## 6. Non-Functional Requirements\n- Performance targets (latency, throughput)\n- Scalability requirements\n- Security and privacy requirements\n- Accessibility requirements (WCAG 2.1 AA minimum)\n- Browser/platform compatibility\n\n## 7. Technical Constraints\n- Technology stack limitations\n- Infrastructure constraints\n- Budget constraints\n- Timeline constraints\n- Compliance requirements\n\n## 8. Success Metrics\n- Quantitative KPIs\n- Qualitative measures\n- Measurement methodology\n\n## 9. Risks and Mitigation\n- Technical risks\n- Business risks\n- User adoption risks\n- Mitigation strategies\n\n## 10. Acceptance Criteria\n- Feature completeness checklist\n- Quality gates\n- Launch readiness criteria\n\nFORMAT: Structured Markdown with clear headers and bullet points.\n\nOUTPUT REQUIREMENTS:\n- Be specific and measurable\n- Avoid vague requirements like \"fast\" or \"user-friendly\"\n- Include concrete examples where helpful\n- Distinguish must-haves from nice-to-haves\n- Call out assumptions explicitly",
+  "inputs": [
+    {
+      "name": "product_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the product or feature"
+    },
+    {
+      "name": "product_overview",
+      "type": "string",
+      "required": true,
+      "description": "Brief overview of what the product does"
+    }
+  ],
+  "output_format": "markdown",
+  "quality_checks": [
+    "Problem statement is clear and specific",
+    "User personas are well-defined",
+    "Requirements are measurable and testable",
+    "Non-goals prevent scope creep",
+    "Success metrics are quantifiable",
+    "Risks have mitigation strategies"
+  ],
+  "tags": ["product-management", "requirements", "planning", "documentation"]
+}

@@ -1,0 +1,329 @@
+# Technical Documentation Generator
+ID: PE-017 | Version: 1.0.0 | Category: business-productivity
+
+Generate comprehensive technical documentation including installation guides, architecture docs, API references, and troubleshooting.
+
+================================================================================
+
+Act as a Senior Technical Writer with expertise in developer documentation.
+
+Your task is to document:
+
+PROJECT: {project_name}
+DOCUMENTATION TYPE: {doc_type}
+AUDIENCE: {target_audience}
+
+## Documentation Structure
+
+### For README.md
+
+```markdown
+# Project Name
+
+Brief one-line description.
+
+## Features
+- Feature 1
+- Feature 2
+
+## Quick Start
+
+### Prerequisites
+- Requirement 1
+- Requirement 2
+
+### Installation
+```bash
+# Step-by-step commands
+```
+
+### Basic Usage
+```language
+# Minimal working example
+```
+
+## Documentation
+
+Link to full docs.
+
+## Contributing
+
+Link to CONTRIBUTING.md.
+
+## License
+
+[License]
+```
+
+### For Installation Guide
+
+#### System Requirements
+- OS requirements
+- Software dependencies
+- Hardware requirements (if applicable)
+- Network requirements
+
+#### Installation Steps
+
+For each supported platform:
+
+**[Platform Name]**
+
+1. **Step 1:** [Clear action]
+   ```bash
+   # Exact command
+   ```
+   Expected output:
+   ```
+   [Sample output]
+   ```
+
+2. **Step 2:** [Next action]
+   ...
+
+#### Verification
+
+How to verify successful installation:
+```bash
+# Verification command
+```
+
+Expected result:
+```
+[Success indicator]
+```
+
+#### Troubleshooting
+
+**Problem:** [Common issue]
+**Cause:** [Why it happens]
+**Solution:** [How to fix]
+
+### For Architecture Documentation
+
+#### System Overview
+- What the system does
+- Key components
+- High-level architecture diagram
+
+#### Architecture Diagram
+```
+[Use Mermaid, PlantUML, or describe clearly]
+```
+
+#### Components
+
+**Component: [Name]**
+- **Purpose:** [What it does]
+- **Technology:** [Implementation details]
+- **Interfaces:** [How it communicates]
+- **Data:** [What data it manages]
+- **Dependencies:** [What it depends on]
+
+#### Data Flow
+1. [Step in data flow]
+2. [Next step]
+
+#### Security Architecture
+- Authentication mechanisms
+- Authorization model
+- Data encryption
+- Security boundaries
+
+#### Deployment Architecture
+- Infrastructure components
+- Networking
+- Scaling strategy
+- Backup and recovery
+
+### For API Documentation
+
+#### API Overview
+- Base URL
+- API version
+- Authentication method
+- Rate limits
+
+#### Authentication
+```http
+GET /api/resource HTTP/1.1
+Authorization: Bearer YOUR_TOKEN
+```
+
+#### Endpoints
+
+**Endpoint:** `[METHOD] /api/path`
+
+**Description:** [What it does]
+
+**Authentication:** Required/Optional
+
+**Parameters:**
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| param1 | string | Yes | Description |
+
+**Request Example:**
+```http
+POST /api/resource HTTP/1.1
+Content-Type: application/json
+
+{
+  "field": "value"
+}
+```
+
+**Success Response (200):**
+```json
+{
+  "data": {},
+  "meta": {}
+}
+```
+
+**Error Responses:**
+- 400 Bad Request: [When and why]
+- 401 Unauthorized: [When and why]
+- 404 Not Found: [When and why]
+
+#### Error Handling
+
+Standard error format:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Description"
+  }
+}
+```
+
+#### Rate Limiting
+[Limits and headers]
+
+### For User Guide
+
+#### Getting Started
+- Account creation
+- First-time setup
+- Basic concepts
+
+#### Core Features
+
+**Feature: [Name]**
+
+**Purpose:** [What it does]
+
+**How to use:**
+1. [Step 1 with screenshot if helpful]
+2. [Step 2]
+
+**Tips:**
+- [Helpful tip]
+
+**Common Issues:**
+- [Issue and solution]
+
+### For Troubleshooting Guide
+
+#### Diagnostic Steps
+1. Check [first thing to check]
+2. Verify [second thing]
+3. Review logs at [location]
+
+#### Common Issues
+
+**Issue: [Problem description]**
+
+**Symptoms:**
+- [What the user sees]
+
+**Cause:**
+[Why it happens]
+
+**Solution:**
+1. [Step-by-step fix]
+2. [Next step]
+
+**Prevention:**
+[How to avoid in the future]
+
+#### Error Messages
+
+**Error:** `[Exact error message]`
+**Meaning:** [What it means]
+**Solution:** [How to fix]
+
+#### Getting Help
+- Documentation: [Link]
+- Community: [Link]
+- Support: [Contact]
+
+## Documentation Principles
+
+### Clarity
+- Write in active voice
+- Use simple, direct language
+- Define technical terms
+- Use examples liberally
+
+### Completeness
+- Cover all features
+- Document edge cases
+- Include error scenarios
+- Provide examples
+
+### Accuracy
+- Test all code examples
+- Verify all commands work
+- Keep version-specific
+- Update with changes
+
+### Organization
+- Logical structure
+- Clear headings
+- Table of contents
+- Cross-references
+
+### Accessibility
+- Descriptive link text
+- Alt text for images
+- Proper heading hierarchy
+- Code samples with syntax highlighting
+
+## Output Format
+
+### [Documentation Title]
+
+[Complete documentation following the appropriate structure above]
+
+### Version Information
+- Documentation version: [Version]
+- Product version: [Version]
+- Last updated: [Date]
+
+### Next Steps
+[What to read next]
+
+## Definition of Done
+- Documentation is complete for requested type
+- All code examples are tested
+- All commands are verified
+- Structure is logical and clear
+- Language is accessible to target audience
+
+
+REQUIRED INPUTS:
+
+- project_name (string, REQUIRED): Name of the project to document
+- doc_type (string, REQUIRED): Type of documentation (README, API, Installation, Architecture, etc.)
+- target_audience (string, optional): Who will read this documentation
+
+
+QUALITY CHECKS:
+
+- Documentation is complete and accurate
+- Code examples are tested
+- Commands are verified
+- Structure is clear and logical
+- Language matches audience level

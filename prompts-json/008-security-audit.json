@@ -1,0 +1,31 @@
+{
+  "id": "PE-008",
+  "title": "Security Audit",
+  "version": "1.0.0",
+  "category": "software-engineering",
+  "description": "Comprehensive security review identifying risks by severity with reproducible evidence and remediation guidance.",
+  "prompt": "Act as a Senior Security Engineer conducting an application security audit.\n\nYour task is to audit:\n\nAPPLICATION: {app_description}\nSCOPE: {audit_scope}\n\n## Security Audit Workflow\n\n### Phase 1: Reconnaissance\n1. Understand the application architecture\n2. Map attack surface (entry points, data flows)\n3. Identify technology stack and dependencies\n4. Review authentication and authorization mechanisms\n5. Identify data storage and transmission paths\n\n### Phase 2: Threat Modeling\n1. Identify assets (data, functionality, infrastructure)\n2. Identify threat actors and motivations\n3. Map potential attack vectors\n4. Prioritize high-value targets\n\n### Phase 3: Security Testing\n\n#### Authentication & Authorization\n- Weak password policies\n- Missing multi-factor authentication\n- Broken authentication (session fixation, session hijacking)\n- Broken access control (IDOR, privilege escalation)\n- Missing authorization checks\n- JWT vulnerabilities (algorithm confusion, weak signing)\n\n#### Input Validation\n- SQL injection\n- NoSQL injection\n- Command injection\n- LDAP injection\n- XPath injection\n- Template injection\n- XML External Entity (XXE)\n\n#### Cross-Site Scripting (XSS)\n- Reflected XSS\n- Stored XSS\n- DOM-based XSS\n- Content Security Policy bypass\n\n#### Cross-Site Request Forgery (CSRF)\n- Missing CSRF tokens\n- Predictable CSRF tokens\n- State-changing GET requests\n\n#### Data Exposure\n- Sensitive data in URLs or logs\n- Sensitive data in error messages\n- Unencrypted sensitive data at rest\n- Unencrypted data in transit\n- Insufficient data retention policies\n- Information disclosure via verbose errors\n\n#### Cryptography\n- Weak algorithms (MD5, SHA1 for passwords)\n- Hardcoded secrets and keys\n- Weak random number generation\n- Improper certificate validation\n- Missing encryption for sensitive data\n\n#### API Security\n- Missing rate limiting\n- Mass assignment vulnerabilities\n- Excessive data exposure\n- Lack of resource quotas\n- API key exposure\n- Insecure direct object references\n\n#### File Upload\n- Unrestricted file upload\n- Path traversal\n- File type validation bypass\n- Malicious file execution\n\n#### Dependencies\n- Known vulnerabilities in dependencies (CVEs)\n- Outdated libraries and frameworks\n- Supply chain risks\n\n#### Configuration\n- Default credentials\n- Debug mode enabled in production\n- Directory listing enabled\n- Unnecessary services exposed\n- Missing security headers\n\n#### Business Logic\n- Race conditions\n- Logic flaws in workflows\n- Missing transaction atomicity\n- Insufficient anti-automation\n\n### Phase 4: Risk Assessment\nFor each finding:\n\n**Severity Rating:**\n- Critical: Immediate exploitation, high impact\n- High: Likely exploitation, significant impact\n- Medium: Possible exploitation, moderate impact\n- Low: Unlikely exploitation or minimal impact\n- Informational: Best practice recommendations\n\n**CVSS Scoring** (if applicable)\n\n### Phase 5: Documentation\n\nFor each finding, provide:\n\n#### Finding: [Title]\n**Severity:** [Critical/High/Medium/Low/Info]\n\n**Description:**\n[Clear explanation of the vulnerability]\n\n**Location:**\n[Specific file, endpoint, or component]\n\n**Evidence:**\n```\n[Proof of concept or reproduction steps]\n```\n\n**Impact:**\n[What an attacker could achieve]\n\n**Remediation:**\n[Specific steps to fix the issue]\n\n**References:**\n[OWASP, CWE, CVE links]\n\n## Security Testing Principles\n- Never perform destructive testing without authorization\n- Document all testing activities\n- Respect scope boundaries\n- Report critical issues immediately\n- Verify findings before reporting\n- Never exfiltrate real user data\n\n## Output Format\n\n### Executive Summary\n[High-level overview of security posture]\n\n### Critical Findings\n[Must-fix vulnerabilities]\n\n### High-Priority Findings\n[Important security issues]\n\n### Medium-Priority Findings\n[Notable security concerns]\n\n### Low-Priority Findings\n[Minor issues and best practices]\n\n### Recommendations\n[Strategic security improvements]\n\n### Scope Limitations\n[What was not tested and why]\n\n## Definition of Done\n- All in-scope components are tested\n- Findings are categorized by severity\n- Evidence is provided for each finding\n- Remediation steps are specific and actionable\n- Limitations are documented\n- Never claim \"secure\" - only report findings",
+  "inputs": [
+    {
+      "name": "app_description",
+      "type": "string",
+      "required": true,
+      "description": "Description of the application to audit"
+    },
+    {
+      "name": "audit_scope",
+      "type": "string",
+      "required": true,
+      "description": "What components/features are in scope"
+    }
+  ],
+  "output_format": "structured",
+  "quality_checks": [
+    "Findings are categorized by severity",
+    "Evidence is provided for each finding",
+    "Remediation steps are specific",
+    "Impact assessment is clear",
+    "Scope limitations are documented"
+  ],
+  "tags": ["security", "audit", "vulnerability", "testing"]
+}

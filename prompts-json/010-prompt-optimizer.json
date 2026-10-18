@@ -1,0 +1,25 @@
+{
+  "id": "PE-010",
+  "title": "Prompt Optimizer",
+  "version": "1.0.0",
+  "category": "ai-prompt-engineering",
+  "description": "Analyze and improve existing prompts by identifying ambiguity, contradictions, and unverifiable requirements.",
+  "prompt": "Act as a Senior Prompt Engineer specializing in prompt analysis and optimization.\n\nYour task is to analyze and improve this prompt:\n\nPROMPT: {existing_prompt}\n\n## Prompt Analysis Framework\n\n### Phase 1: Structural Analysis\n\n#### Clarity Check\n- Is the role clearly defined?\n- Is the objective specific?\n- Are instructions unambiguous?\n- Are examples provided where helpful?\n- Are technical terms defined?\n\n#### Completeness Check\n- Is necessary context provided?\n- Are all inputs specified?\n- Are outputs well-defined?\n- Are constraints listed?\n- Are edge cases addressed?\n\n#### Consistency Check\n- Are there contradictory instructions?\n- Is terminology used consistently?\n- Do success criteria align with objectives?\n- Are priorities clear when multiple goals exist?\n\n#### Verifiability Check\n- Are outcomes measurable?\n- Can compliance be verified?\n- Are verification steps included?\n- Does it avoid unverifiable requirements (\"perfect\", \"best\")?\n\n### Phase 2: Issue Identification\n\n#### Ambiguity Issues\nFlag vague terms:\n- \"Good\", \"fast\", \"efficient\", \"user-friendly\"\n- \"Properly\", \"correctly\", \"appropriately\"\n- \"Some\", \"many\", \"often\"\n- Undefined technical terms\n\n#### Contradiction Issues\n- Conflicting requirements\n- Mutually exclusive constraints\n- Contradictory success criteria\n\n#### Scope Issues\n- Unclear boundaries\n- Scope creep potential\n- Missing exclusions\n- Unrealistic expectations\n\n#### Specificity Issues\n- Missing details\n- Undefined formats\n- Unspecified constraints\n- Vague success criteria\n\n#### Actionability Issues\n- Abstract goals without concrete steps\n- Missing implementation guidance\n- Unclear priorities\n- No error handling guidance\n\n#### Efficiency Issues\n- Unnecessary verbosity\n- Redundant instructions\n- Excessive preamble\n- Irrelevant context\n\n### Phase 3: Optimization\n\n#### Clarity Improvements\n- Replace vague terms with specific criteria\n- Add definitions for ambiguous terms\n- Include concrete examples\n- Structure with clear sections\n\n#### Completeness Improvements\n- Add missing context\n- Specify all inputs and outputs\n- Define constraints explicitly\n- Add edge case handling\n\n#### Consistency Improvements\n- Resolve contradictions\n- Standardize terminology\n- Align success criteria with objectives\n- Establish clear priorities\n\n#### Verifiability Improvements\n- Convert subjective criteria to objective measures\n- Add verification steps\n- Request evidence instead of claims\n- Define measurable outcomes\n\n#### Efficiency Improvements\n- Remove redundant instructions\n- Condense verbose sections\n- Remove unnecessary preamble\n- Focus on essential information\n\n### Phase 4: Testing\n\n#### Red Team the Prompt\n- How could it be misinterpreted?\n- What edge cases are missed?\n- What assumptions are unstated?\n- What could go wrong?\n\n#### Simulate Execution\n- Walk through the prompt step by step\n- Identify missing information at each step\n- Check if outputs can be produced from inputs\n- Verify workflow is logical\n\n## Output Format\n\n### Analysis Summary\n[Brief overview of issues found]\n\n### Issues Found\n\n#### Critical Issues (Must Fix)\n1. [Issue description]\n   - **Problem:** [Explanation]\n   - **Impact:** [Why it matters]\n   - **Fix:** [Specific improvement]\n\n#### Important Issues (Should Fix)\n[List with explanations]\n\n#### Minor Issues (Consider Fixing)\n[List with explanations]\n\n### Optimized Prompt\n```\n[Complete improved prompt]\n```\n\n### Changes Made\n1. [Change description and rationale]\n2. [Change description and rationale]\n\n### Remaining Limitations\n[What the optimized prompt still cannot guarantee]\n\n### Testing Recommendations\n[How to validate the improved prompt]\n\n## Optimization Principles\n- Preserve the original intent\n- Make minimal necessary changes\n- Prioritize clarity over brevity\n- Make success criteria measurable\n- Remove unverifiable requirements\n- Add structure where missing\n- Resolve contradictions\n- Improve actionability\n\n## Definition of Done\n- All critical issues are addressed\n- Contradictions are resolved\n- Vague terms are made specific\n- Success criteria are measurable\n- Verification steps are included\n- Changes are documented with rationale",
+  "inputs": [
+    {
+      "name": "existing_prompt",
+      "type": "string",
+      "required": true,
+      "description": "The prompt to analyze and improve"
+    }
+  ],
+  "output_format": "structured",
+  "quality_checks": [
+    "All issues are categorized by severity",
+    "Specific improvements are suggested",
+    "Optimized prompt is provided",
+    "Changes are explained with rationale",
+    "Original intent is preserved"
+  ],
+  "tags": ["prompt-engineering", "optimization", "analysis"]
+}

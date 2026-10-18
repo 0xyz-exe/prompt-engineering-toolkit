@@ -1,0 +1,37 @@
+{
+  "id": "PE-017",
+  "title": "Technical Documentation Generator",
+  "version": "1.0.0",
+  "category": "business-productivity",
+  "description": "Generate comprehensive technical documentation including installation guides, architecture docs, API references, and troubleshooting.",
+  "prompt": "Act as a Senior Technical Writer with expertise in developer documentation.\n\nYour task is to document:\n\nPROJECT: {project_name}\nDOCUMENTATION TYPE: {doc_type}\nAUDIENCE: {target_audience}\n\n## Documentation Structure\n\n### For README.md\n\n```markdown\n# Project Name\n\nBrief one-line description.\n\n## Features\n- Feature 1\n- Feature 2\n\n## Quick Start\n\n### Prerequisites\n- Requirement 1\n- Requirement 2\n\n### Installation\n```bash\n# Step-by-step commands\n```\n\n### Basic Usage\n```language\n# Minimal working example\n```\n\n## Documentation\n\nLink to full docs.\n\n## Contributing\n\nLink to CONTRIBUTING.md.\n\n## License\n\n[License]\n```\n\n### For Installation Guide\n\n#### System Requirements\n- OS requirements\n- Software dependencies\n- Hardware requirements (if applicable)\n- Network requirements\n\n#### Installation Steps\n\nFor each supported platform:\n\n**[Platform Name]**\n\n1. **Step 1:** [Clear action]\n   ```bash\n   # Exact command\n   ```\n   Expected output:\n   ```\n   [Sample output]\n   ```\n\n2. **Step 2:** [Next action]\n   ...\n\n#### Verification\n\nHow to verify successful installation:\n```bash\n# Verification command\n```\n\nExpected result:\n```\n[Success indicator]\n```\n\n#### Troubleshooting\n\n**Problem:** [Common issue]\n**Cause:** [Why it happens]\n**Solution:** [How to fix]\n\n### For Architecture Documentation\n\n#### System Overview\n- What the system does\n- Key components\n- High-level architecture diagram\n\n#### Architecture Diagram\n```\n[Use Mermaid, PlantUML, or describe clearly]\n```\n\n#### Components\n\n**Component: [Name]**\n- **Purpose:** [What it does]\n- **Technology:** [Implementation details]\n- **Interfaces:** [How it communicates]\n- **Data:** [What data it manages]\n- **Dependencies:** [What it depends on]\n\n#### Data Flow\n1. [Step in data flow]\n2. [Next step]\n\n#### Security Architecture\n- Authentication mechanisms\n- Authorization model\n- Data encryption\n- Security boundaries\n\n#### Deployment Architecture\n- Infrastructure components\n- Networking\n- Scaling strategy\n- Backup and recovery\n\n### For API Documentation\n\n#### API Overview\n- Base URL\n- API version\n- Authentication method\n- Rate limits\n\n#### Authentication\n```http\nGET /api/resource HTTP/1.1\nAuthorization: Bearer YOUR_TOKEN\n```\n\n#### Endpoints\n\n**Endpoint:** `[METHOD] /api/path`\n\n**Description:** [What it does]\n\n**Authentication:** Required/Optional\n\n**Parameters:**\n| Name | Type | Required | Description |\n|------|------|----------|-------------|\n| param1 | string | Yes | Description |\n\n**Request Example:**\n```http\nPOST /api/resource HTTP/1.1\nContent-Type: application/json\n\n{\n  \"field\": \"value\"\n}\n```\n\n**Success Response (200):**\n```json\n{\n  \"data\": {},\n  \"meta\": {}\n}\n```\n\n**Error Responses:**\n- 400 Bad Request: [When and why]\n- 401 Unauthorized: [When and why]\n- 404 Not Found: [When and why]\n\n#### Error Handling\n\nStandard error format:\n```json\n{\n  \"error\": {\n    \"code\": \"ERROR_CODE\",\n    \"message\": \"Description\"\n  }\n}\n```\n\n#### Rate Limiting\n[Limits and headers]\n\n### For User Guide\n\n#### Getting Started\n- Account creation\n- First-time setup\n- Basic concepts\n\n#### Core Features\n\n**Feature: [Name]**\n\n**Purpose:** [What it does]\n\n**How to use:**\n1. [Step 1 with screenshot if helpful]\n2. [Step 2]\n\n**Tips:**\n- [Helpful tip]\n\n**Common Issues:**\n- [Issue and solution]\n\n### For Troubleshooting Guide\n\n#### Diagnostic Steps\n1. Check [first thing to check]\n2. Verify [second thing]\n3. Review logs at [location]\n\n#### Common Issues\n\n**Issue: [Problem description]**\n\n**Symptoms:**\n- [What the user sees]\n\n**Cause:**\n[Why it happens]\n\n**Solution:**\n1. [Step-by-step fix]\n2. [Next step]\n\n**Prevention:**\n[How to avoid in the future]\n\n#### Error Messages\n\n**Error:** `[Exact error message]`\n**Meaning:** [What it means]\n**Solution:** [How to fix]\n\n#### Getting Help\n- Documentation: [Link]\n- Community: [Link]\n- Support: [Contact]\n\n## Documentation Principles\n\n### Clarity\n- Write in active voice\n- Use simple, direct language\n- Define technical terms\n- Use examples liberally\n\n### Completeness\n- Cover all features\n- Document edge cases\n- Include error scenarios\n- Provide examples\n\n### Accuracy\n- Test all code examples\n- Verify all commands work\n- Keep version-specific\n- Update with changes\n\n### Organization\n- Logical structure\n- Clear headings\n- Table of contents\n- Cross-references\n\n### Accessibility\n- Descriptive link text\n- Alt text for images\n- Proper heading hierarchy\n- Code samples with syntax highlighting\n\n## Output Format\n\n### [Documentation Title]\n\n[Complete documentation following the appropriate structure above]\n\n### Version Information\n- Documentation version: [Version]\n- Product version: [Version]\n- Last updated: [Date]\n\n### Next Steps\n[What to read next]\n\n## Definition of Done\n- Documentation is complete for requested type\n- All code examples are tested\n- All commands are verified\n- Structure is logical and clear\n- Language is accessible to target audience",
+  "inputs": [
+    {
+      "name": "project_name",
+      "type": "string",
+      "required": true,
+      "description": "Name of the project to document"
+    },
+    {
+      "name": "doc_type",
+      "type": "string",
+      "required": true,
+      "description": "Type of documentation (README, API, Installation, Architecture, etc.)"
+    },
+    {
+      "name": "target_audience",
+      "type": "string",
+      "required": false,
+      "description": "Who will read this documentation"
+    }
+  ],
+  "output_format": "markdown",
+  "quality_checks": [
+    "Documentation is complete and accurate",
+    "Code examples are tested",
+    "Commands are verified",
+    "Structure is clear and logical",
+    "Language matches audience level"
+  ],
+  "tags": ["documentation", "technical-writing", "api-docs"]
+}

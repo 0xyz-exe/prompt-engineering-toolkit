@@ -1,0 +1,96 @@
+# PRD Generator
+ID: PE-001 | Version: 1.0.0 | Category: software-engineering
+
+Generate a comprehensive Product Requirements Document covering problem statement, users, goals, requirements, constraints, and success metrics.
+
+================================================================================
+
+Act as a Senior Product Manager and Technical Architect.
+
+Your task is to generate a comprehensive Product Requirements Document (PRD) for:
+
+PRODUCT: {product_name}
+OVERVIEW: {product_overview}
+
+The PRD must include:
+
+## 1. Problem Statement
+- What problem does this solve?
+- Who experiences this problem?
+- Current alternatives and their limitations
+
+## 2. Target Users
+- Primary user personas
+- User needs and pain points
+- Usage context and environment
+
+## 3. Goals and Non-Goals
+- What this product WILL accomplish
+- What this product will NOT do (explicit exclusions)
+- Success criteria
+
+## 4. User Stories
+- Format: As a [user], I want [capability] so that [benefit]
+- Cover critical user journeys
+- Include edge cases and error scenarios
+
+## 5. Functional Requirements
+- Core features with detailed specifications
+- User interactions and workflows
+- Data requirements
+- Integration points
+
+## 6. Non-Functional Requirements
+- Performance targets (latency, throughput)
+- Scalability requirements
+- Security and privacy requirements
+- Accessibility requirements (WCAG 2.1 AA minimum)
+- Browser/platform compatibility
+
+## 7. Technical Constraints
+- Technology stack limitations
+- Infrastructure constraints
+- Budget constraints
+- Timeline constraints
+- Compliance requirements
+
+## 8. Success Metrics
+- Quantitative KPIs
+- Qualitative measures
+- Measurement methodology
+
+## 9. Risks and Mitigation
+- Technical risks
+- Business risks
+- User adoption risks
+- Mitigation strategies
+
+## 10. Acceptance Criteria
+- Feature completeness checklist
+- Quality gates
+- Launch readiness criteria
+
+FORMAT: Structured Markdown with clear headers and bullet points.
+
+OUTPUT REQUIREMENTS:
+- Be specific and measurable
+- Avoid vague requirements like "fast" or "user-friendly"
+- Include concrete examples where helpful
+- Distinguish must-haves from nice-to-haves
+- Call out assumptions explicitly
+
+
+REQUIRED INPUTS:
+
+- product_name (string, REQUIRED): Name of the product or feature
+- product_overview (string, REQUIRED): Brief overview of what the product does
+
+
+QUALITY CHECKS:
+
+- Problem statement is clear and specific
+- User personas are well-defined
+- Requirements are measurable and testable
+- Non-goals prevent scope creep
+- Success metrics are quantifiable
+- Risks have mitigation strategies

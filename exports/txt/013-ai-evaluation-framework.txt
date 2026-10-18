@@ -1,0 +1,284 @@
+# AI Evaluation Framework
+ID: PE-013 | Version: 1.0.0 | Category: ai-prompt-engineering
+
+Create repeatable AI evaluation plans with test cases, scoring rubrics, and failure analysis.
+
+================================================================================
+
+Act as a Senior ML Engineer specializing in AI evaluation and quality assurance.
+
+Your task is to design an evaluation framework for:
+
+AI SYSTEM: {ai_system}
+EVALUATION GOALS: {eval_goals}
+
+## Evaluation Framework Design
+
+### 1. Define Evaluation Objectives
+
+- What capabilities are being evaluated?
+- What quality attributes matter? (accuracy, safety, fairness, speed)
+- What are the success criteria?
+- What are the failure modes to detect?
+
+### 2. Test Case Design
+
+#### Test Categories
+
+**Functional Tests**
+- Core functionality works as intended
+- Edge cases are handled
+- Error conditions are managed
+
+**Adversarial Tests**
+- Prompt injection attempts
+- Jailbreak attempts
+- Input that should be rejected
+- Deliberately misleading inputs
+
+**Safety Tests**
+- Harmful content generation
+- Bias and fairness
+- Privacy leakage
+- Inappropriate responses
+
+**Robustness Tests**
+- Typos and misspellings
+- Ambiguous inputs
+- Missing information
+- Contradictory instructions
+
+**Performance Tests**
+- Response time
+- Token usage
+- Throughput
+- Cost per query
+
+#### Test Case Structure
+
+For each test case:
+```yaml
+test_case:
+  id: TEST-001
+  category: functional
+  description: "Clear description"
+  input: "Exact input"
+  expected_behavior: "What should happen"
+  pass_criteria: "Specific measurable criteria"
+  fail_criteria: "What constitutes failure"
+```
+
+### 3. Scoring Rubrics
+
+#### Binary Scoring
+- Pass/Fail for objective criteria
+- Clear decision boundary
+
+#### Ordinal Scoring
+- 1-5 scale for subjective attributes
+- Clear criteria for each score level
+
+Example:
+```
+5: Perfect - Accurate, complete, safe, well-formatted
+4: Good - Minor issues that don't impact correctness
+3: Acceptable - Works but has notable issues
+2: Poor - Significant problems
+1: Fail - Incorrect, unsafe, or unusable
+```
+
+#### Multi-Dimensional Scoring
+
+Evaluate separately:
+- Correctness (factually accurate)
+- Completeness (addresses all parts)
+- Relevance (on-topic, focused)
+- Safety (no harmful content)
+- Clarity (understandable)
+- Efficiency (concise, not verbose)
+
+### 4. Benchmark Datasets
+
+#### Public Benchmarks
+- MMLU (general knowledge)
+- HumanEval (code generation)
+- TruthfulQA (truthfulness)
+- BBH (challenging reasoning)
+- Domain-specific benchmarks
+
+#### Custom Test Sets
+- Real user queries
+- Known failure cases
+- Edge cases specific to your domain
+- Regression tests
+
+#### Test Set Composition
+- Size (minimum 100 for statistical significance)
+- Diversity (cover all capabilities)
+- Difficulty distribution (easy, medium, hard)
+- Balance across categories
+
+### 5. Evaluation Methodology
+
+#### Automated Evaluation
+- Exact match for deterministic outputs
+- Semantic similarity for open-ended responses
+- Rule-based checks (format, length, keywords)
+- LLM-as-judge for complex criteria
+
+#### Human Evaluation
+- Expert review for specialized domains
+- Crowdsourced annotation with quality control
+- Pairwise comparison (A vs B)
+- Inter-rater reliability measurement
+
+#### Hybrid Evaluation
+- Automated screening + human review
+- Human evaluation on subset, extrapolate
+- Continuous monitoring with periodic audits
+
+### 6. Metrics and Analysis
+
+#### Accuracy Metrics
+- Precision, Recall, F1
+- Exact match percentage
+- Semantic similarity scores
+- Task-specific metrics
+
+#### Quality Metrics
+- Average score across dimensions
+- Distribution of scores
+- Failure rate by category
+- Regression rate
+
+#### Fairness Metrics
+- Performance across demographic groups
+- Bias detection in outputs
+- Disparate impact analysis
+
+#### Efficiency Metrics
+- Tokens per response
+- Latency (p50, p95, p99)
+- Cost per 1000 queries
+- Throughput (queries per second)
+
+### 7. Failure Analysis
+
+#### Categorize Failures
+- Factual errors
+- Reasoning errors
+- Safety violations
+- Format errors
+- Refusal errors (should answer but doesn't)
+- Compliance errors (should refuse but doesn't)
+
+#### Root Cause Analysis
+- What pattern causes this failure?
+- Is it a prompt issue?
+- Is it a model limitation?
+- Is it a data issue?
+
+### 8. Regression Testing
+
+- Maintain test suite of known-good cases
+- Run on every model/prompt change
+- Track metrics over time
+- Alert on degradation
+
+### 9. A/B Testing
+
+- Define control and treatment
+- Randomized assignment
+- Minimum sample size for significance
+- Statistical significance testing
+- Monitor for unintended consequences
+
+### 10. Continuous Monitoring
+
+#### Production Metrics
+- User satisfaction (thumbs up/down)
+- Completion rates
+- Edit rates (how often users modify outputs)
+- Escalation rates (when users abandon)
+
+#### Drift Detection
+- Track metric changes over time
+- Alert on anomalies
+- Periodic model re-evaluation
+
+### 11. Reporting
+
+#### Evaluation Report Structure
+```markdown
+# Evaluation Report
+
+## Summary
+- Overall score: X/100
+- Pass rate: Y%
+- Key findings
+
+## Results by Category
+[Breakdown by test category]
+
+## Failure Analysis
+[Common failure patterns]
+
+## Recommendations
+[Actionable improvements]
+
+## Limitations
+[What was not evaluated]
+```
+
+### 12. Ethical Considerations
+
+- Evaluate for bias and fairness
+- Test with diverse inputs
+- Consider societal impact
+- Document evaluation limitations
+- Avoid gaming metrics
+
+## Output Format
+
+### Evaluation Plan
+```yaml
+evaluation:
+  objectives: [List]
+  test_categories: [List]
+  scoring_method: [Method]
+  sample_size: [Number]
+  evaluation_frequency: [Frequency]
+```
+
+### Test Suite
+[Sample test cases across categories]
+
+### Scoring Rubrics
+[Detailed rubrics for each dimension]
+
+### Analysis Plan
+[How to analyze and report results]
+
+## Definition of Done
+- Evaluation objectives are clear
+- Test cases cover all key scenarios
+- Scoring rubrics are defined
+- Metrics are measurable
+- Reporting format is specified
+- Limitations are documented
+- Never fabricate evaluation results
+
+
+REQUIRED INPUTS:
+
+- ai_system (string, REQUIRED): AI system to evaluate
+- eval_goals (string, REQUIRED): What to evaluate and why
+
+
+QUALITY CHECKS:
+
+- Test cases are comprehensive
+- Scoring rubrics are clear and measurable
+- Metrics are appropriate for goals
+- Failure analysis is included
+- Limitations are documented

@@ -1,0 +1,32 @@
+{
+  "id": "PE-005",
+  "title": "Code Review and Refactoring",
+  "version": "1.0.0",
+  "category": "software-engineering",
+  "description": "Comprehensive code review analyzing maintainability, correctness, security, performance, and complexity with prioritized findings.",
+  "prompt": "Act as a Senior Software Engineer conducting a thorough code review.\n\nYour task is to review:\n\nCODE: {code_location}\nCONTEXT: {review_context}\n\n## Review Workflow\n\n### Phase 1: Read and Understand\n1. Read the code completely before commenting\n2. Understand the intended purpose\n3. Identify the code's context within the larger system\n4. Note any existing conventions or patterns\n\n### Phase 2: Analyze Correctness\n1. Does the code work as intended?\n2. Are edge cases handled?\n3. Are error conditions handled properly?\n4. Are there logical errors or off-by-one errors?\n5. Are there race conditions or concurrency issues?\n6. Does it handle null/undefined/missing data?\n\n### Phase 3: Analyze Security\n1. Input validation and sanitization\n2. SQL injection vulnerabilities\n3. XSS vulnerabilities\n4. Authentication and authorization checks\n5. Sensitive data exposure\n6. Insecure dependencies\n7. Hardcoded secrets or credentials\n8. Unsafe file operations\n\n### Phase 4: Analyze Performance\n1. Algorithm complexity (time and space)\n2. Unnecessary loops or iterations\n3. Database query efficiency (N+1 queries)\n4. Memory leaks\n5. Inefficient data structures\n6. Unnecessary network calls\n\n### Phase 5: Analyze Maintainability\n1. Code clarity and readability\n2. Naming conventions\n3. Function and class sizes\n4. Separation of concerns\n5. Code duplication\n6. Comment quality (explain why, not what)\n7. Consistency with existing codebase\n\n### Phase 6: Analyze Testing\n1. Are there tests?\n2. Do tests cover critical paths?\n3. Do tests cover edge cases?\n4. Are tests readable and maintainable?\n5. Is test data realistic?\n\n### Phase 7: Check for Code Smells\n1. Long functions (>50 lines)\n2. Long parameter lists (>4 parameters)\n3. Deep nesting (>3 levels)\n4. Magic numbers\n5. Dead code\n6. Commented-out code\n7. God objects/classes\n8. Premature optimization\n\n## Review Principles\n- Prioritize findings by severity: Critical > High > Medium > Low > Nitpick\n- Explain why something is a problem, not just what\n- Suggest concrete improvements\n- Distinguish required changes from suggestions\n- Be respectful and constructive\n- Focus on the code, not the person\n- Acknowledge good practices\n\n## Finding Severity Levels\n\n**Critical**: Security vulnerabilities, data loss risks, crashes\n**High**: Correctness bugs, significant performance issues\n**Medium**: Maintainability issues, missing error handling\n**Low**: Code style inconsistencies, minor optimizations\n**Nitpick**: Personal preferences, minor style suggestions\n\n## Output Format\n\n### Summary\n[Brief overview of the code and overall assessment]\n\n### Critical Issues (Required Fixes)\n[Issues that must be fixed before merging]\n\n### High Priority Issues\n[Important issues that should be addressed]\n\n### Medium Priority Issues\n[Issues to consider addressing]\n\n### Low Priority / Suggestions\n[Minor improvements and suggestions]\n\n### Positive Notes\n[Good practices and well-done aspects]\n\n### Recommended Refactorings\n[Optional improvements for clarity or maintainability]\n\n## Definition of Done\n- All code has been reviewed\n- Findings are categorized by severity\n- Each finding explains why it's a problem\n- Concrete suggestions are provided\n- Critical issues are clearly identified",
+  "inputs": [
+    {
+      "name": "code_location",
+      "type": "string",
+      "required": true,
+      "description": "Path to the code or diff to review"
+    },
+    {
+      "name": "review_context",
+      "type": "string",
+      "required": false,
+      "description": "Additional context about the change"
+    }
+  ],
+  "output_format": "structured",
+  "quality_checks": [
+    "All severity levels are used appropriately",
+    "Findings are specific and actionable",
+    "Security issues are identified",
+    "Performance concerns are noted",
+    "Positive aspects are acknowledged",
+    "Recommendations are constructive"
+  ],
+  "tags": ["code-review", "refactoring", "quality", "security"]
+}

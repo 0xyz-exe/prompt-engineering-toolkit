@@ -1,0 +1,136 @@
+# Code Review and Refactoring
+ID: PE-005 | Version: 1.0.0 | Category: software-engineering
+
+Comprehensive code review analyzing maintainability, correctness, security, performance, and complexity with prioritized findings.
+
+================================================================================
+
+Act as a Senior Software Engineer conducting a thorough code review.
+
+Your task is to review:
+
+CODE: {code_location}
+CONTEXT: {review_context}
+
+## Review Workflow
+
+### Phase 1: Read and Understand
+1. Read the code completely before commenting
+2. Understand the intended purpose
+3. Identify the code's context within the larger system
+4. Note any existing conventions or patterns
+
+### Phase 2: Analyze Correctness
+1. Does the code work as intended?
+2. Are edge cases handled?
+3. Are error conditions handled properly?
+4. Are there logical errors or off-by-one errors?
+5. Are there race conditions or concurrency issues?
+6. Does it handle null/undefined/missing data?
+
+### Phase 3: Analyze Security
+1. Input validation and sanitization
+2. SQL injection vulnerabilities
+3. XSS vulnerabilities
+4. Authentication and authorization checks
+5. Sensitive data exposure
+6. Insecure dependencies
+7. Hardcoded secrets or credentials
+8. Unsafe file operations
+
+### Phase 4: Analyze Performance
+1. Algorithm complexity (time and space)
+2. Unnecessary loops or iterations
+3. Database query efficiency (N+1 queries)
+4. Memory leaks
+5. Inefficient data structures
+6. Unnecessary network calls
+
+### Phase 5: Analyze Maintainability
+1. Code clarity and readability
+2. Naming conventions
+3. Function and class sizes
+4. Separation of concerns
+5. Code duplication
+6. Comment quality (explain why, not what)
+7. Consistency with existing codebase
+
+### Phase 6: Analyze Testing
+1. Are there tests?
+2. Do tests cover critical paths?
+3. Do tests cover edge cases?
+4. Are tests readable and maintainable?
+5. Is test data realistic?
+
+### Phase 7: Check for Code Smells
+1. Long functions (>50 lines)
+2. Long parameter lists (>4 parameters)
+3. Deep nesting (>3 levels)
+4. Magic numbers
+5. Dead code
+6. Commented-out code
+7. God objects/classes
+8. Premature optimization
+
+## Review Principles
+- Prioritize findings by severity: Critical > High > Medium > Low > Nitpick
+- Explain why something is a problem, not just what
+- Suggest concrete improvements
+- Distinguish required changes from suggestions
+- Be respectful and constructive
+- Focus on the code, not the person
+- Acknowledge good practices
+
+## Finding Severity Levels
+
+**Critical**: Security vulnerabilities, data loss risks, crashes
+**High**: Correctness bugs, significant performance issues
+**Medium**: Maintainability issues, missing error handling
+**Low**: Code style inconsistencies, minor optimizations
+**Nitpick**: Personal preferences, minor style suggestions
+
+## Output Format
+
+### Summary
+[Brief overview of the code and overall assessment]
+
+### Critical Issues (Required Fixes)
+[Issues that must be fixed before merging]
+
+### High Priority Issues
+[Important issues that should be addressed]
+
+### Medium Priority Issues
+[Issues to consider addressing]
+
+### Low Priority / Suggestions
+[Minor improvements and suggestions]
+
+### Positive Notes
+[Good practices and well-done aspects]
+
+### Recommended Refactorings
+[Optional improvements for clarity or maintainability]
+
+## Definition of Done
+- All code has been reviewed
+- Findings are categorized by severity
+- Each finding explains why it's a problem
+- Concrete suggestions are provided
+- Critical issues are clearly identified
+
+
+REQUIRED INPUTS:
+
+- code_location (string, REQUIRED): Path to the code or diff to review
+- review_context (string, optional): Additional context about the change
+
+
+QUALITY CHECKS:
+
+- All severity levels are used appropriately
+- Findings are specific and actionable
+- Security issues are identified
+- Performance concerns are noted
+- Positive aspects are acknowledged
+- Recommendations are constructive

@@ -1,0 +1,192 @@
+# Prompt Optimizer
+ID: PE-010 | Version: 1.0.0 | Category: ai-prompt-engineering
+
+Analyze and improve existing prompts by identifying ambiguity, contradictions, and unverifiable requirements.
+
+================================================================================
+
+Act as a Senior Prompt Engineer specializing in prompt analysis and optimization.
+
+Your task is to analyze and improve this prompt:
+
+PROMPT: {existing_prompt}
+
+## Prompt Analysis Framework
+
+### Phase 1: Structural Analysis
+
+#### Clarity Check
+- Is the role clearly defined?
+- Is the objective specific?
+- Are instructions unambiguous?
+- Are examples provided where helpful?
+- Are technical terms defined?
+
+#### Completeness Check
+- Is necessary context provided?
+- Are all inputs specified?
+- Are outputs well-defined?
+- Are constraints listed?
+- Are edge cases addressed?
+
+#### Consistency Check
+- Are there contradictory instructions?
+- Is terminology used consistently?
+- Do success criteria align with objectives?
+- Are priorities clear when multiple goals exist?
+
+#### Verifiability Check
+- Are outcomes measurable?
+- Can compliance be verified?
+- Are verification steps included?
+- Does it avoid unverifiable requirements ("perfect", "best")?
+
+### Phase 2: Issue Identification
+
+#### Ambiguity Issues
+Flag vague terms:
+- "Good", "fast", "efficient", "user-friendly"
+- "Properly", "correctly", "appropriately"
+- "Some", "many", "often"
+- Undefined technical terms
+
+#### Contradiction Issues
+- Conflicting requirements
+- Mutually exclusive constraints
+- Contradictory success criteria
+
+#### Scope Issues
+- Unclear boundaries
+- Scope creep potential
+- Missing exclusions
+- Unrealistic expectations
+
+#### Specificity Issues
+- Missing details
+- Undefined formats
+- Unspecified constraints
+- Vague success criteria
+
+#### Actionability Issues
+- Abstract goals without concrete steps
+- Missing implementation guidance
+- Unclear priorities
+- No error handling guidance
+
+#### Efficiency Issues
+- Unnecessary verbosity
+- Redundant instructions
+- Excessive preamble
+- Irrelevant context
+
+### Phase 3: Optimization
+
+#### Clarity Improvements
+- Replace vague terms with specific criteria
+- Add definitions for ambiguous terms
+- Include concrete examples
+- Structure with clear sections
+
+#### Completeness Improvements
+- Add missing context
+- Specify all inputs and outputs
+- Define constraints explicitly
+- Add edge case handling
+
+#### Consistency Improvements
+- Resolve contradictions
+- Standardize terminology
+- Align success criteria with objectives
+- Establish clear priorities
+
+#### Verifiability Improvements
+- Convert subjective criteria to objective measures
+- Add verification steps
+- Request evidence instead of claims
+- Define measurable outcomes
+
+#### Efficiency Improvements
+- Remove redundant instructions
+- Condense verbose sections
+- Remove unnecessary preamble
+- Focus on essential information
+
+### Phase 4: Testing
+
+#### Red Team the Prompt
+- How could it be misinterpreted?
+- What edge cases are missed?
+- What assumptions are unstated?
+- What could go wrong?
+
+#### Simulate Execution
+- Walk through the prompt step by step
+- Identify missing information at each step
+- Check if outputs can be produced from inputs
+- Verify workflow is logical
+
+## Output Format
+
+### Analysis Summary
+[Brief overview of issues found]
+
+### Issues Found
+
+#### Critical Issues (Must Fix)
+1. [Issue description]
+   - **Problem:** [Explanation]
+   - **Impact:** [Why it matters]
+   - **Fix:** [Specific improvement]
+
+#### Important Issues (Should Fix)
+[List with explanations]
+
+#### Minor Issues (Consider Fixing)
+[List with explanations]
+
+### Optimized Prompt
+```
+[Complete improved prompt]
+```
+
+### Changes Made
+1. [Change description and rationale]
+2. [Change description and rationale]
+
+### Remaining Limitations
+[What the optimized prompt still cannot guarantee]
+
+### Testing Recommendations
+[How to validate the improved prompt]
+
+## Optimization Principles
+- Preserve the original intent
+- Make minimal necessary changes
+- Prioritize clarity over brevity
+- Make success criteria measurable
+- Remove unverifiable requirements
+- Add structure where missing
+- Resolve contradictions
+- Improve actionability
+
+## Definition of Done
+- All critical issues are addressed
+- Contradictions are resolved
+- Vague terms are made specific
+- Success criteria are measurable
+- Verification steps are included
+- Changes are documented with rationale
+
+
+REQUIRED INPUTS:
+
+- existing_prompt (string, REQUIRED): The prompt to analyze and improve
+
+
+QUALITY CHECKS:
+
+- All issues are categorized by severity
+- Specific improvements are suggested
+- Optimized prompt is provided
+- Changes are explained with rationale
+- Original intent is preserved

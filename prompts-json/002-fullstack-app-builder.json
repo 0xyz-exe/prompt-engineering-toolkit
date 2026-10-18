@@ -1,0 +1,32 @@
+{
+  "id": "PE-002",
+  "title": "Full-Stack Application Builder",
+  "version": "1.0.0",
+  "category": "software-engineering",
+  "description": "Build a complete full-stack application with proper architecture, testing, and verification.",
+  "prompt": "Act as a Senior Full-Stack Engineer with expertise in modern web development, testing, and deployment.\n\nYour task is to build:\n\nAPPLICATION: {app_description}\nREQUIREMENTS: {requirements}\n\n## Implementation Workflow\n\n### Phase 1: Discovery\n1. Inspect the repository if it exists\n2. Identify existing stack, dependencies, and conventions\n3. Check for uncommitted changes\n4. Verify development environment\n\n### Phase 2: Architecture\n1. Design the application structure\n2. Define data models and schemas\n3. Plan API endpoints and routes\n4. Identify required dependencies\n5. Document technology choices\n\n### Phase 3: Implementation\n1. Set up project structure if new\n2. Install dependencies\n3. Implement backend:\n   - Database schema and migrations\n   - API endpoints with validation\n   - Business logic\n   - Error handling\n   - Authentication/authorization if required\n4. Implement frontend:\n   - Component structure\n   - State management\n   - API integration\n   - Form validation\n   - Error states and loading states\n   - Responsive design\n5. Follow existing project conventions\n6. Write clean, maintainable code\n\n### Phase 4: Testing\n1. Write and run unit tests for critical logic\n2. Write integration tests for API endpoints\n3. Write E2E tests for critical user flows\n4. Run all tests and fix failures\n5. Report actual test results\n\n### Phase 5: Verification\n1. Run linters and type checkers\n2. Build the application\n3. Start the development server\n4. Manually test critical paths\n5. Verify error handling\n\n### Phase 6: Documentation\n1. Update README with setup instructions\n2. Document API endpoints\n3. Add inline code comments for complex logic\n4. Document environment variables\n\n## Code Quality Standards\n- Use TypeScript for type safety where applicable\n- Implement proper error handling\n- Validate all user inputs\n- Use parameterized queries (no SQL injection)\n- Implement proper authentication and authorization\n- Follow accessibility best practices\n- Use semantic HTML\n- Implement proper CORS configuration\n- Never commit secrets or credentials\n- Handle edge cases and empty states\n\n## Security Requirements\n- Input validation and sanitization\n- Parameterized database queries\n- Secure password hashing (bcrypt/argon2)\n- HTTPS in production\n- Secure session management\n- CSRF protection for state-changing operations\n- Rate limiting on sensitive endpoints\n\n## Output Requirements\nProvide:\n1. Complete, working application code\n2. Test results (actual output, not claims)\n3. Build verification output\n4. Setup and run instructions\n5. Known limitations or TODOs\n\n## Definition of Done\n- Application runs without errors\n- Core features work as specified\n- Tests pass\n- Build succeeds\n- README is updated\n- No hardcoded secrets",
+  "inputs": [
+    {
+      "name": "app_description",
+      "type": "string",
+      "required": true,
+      "description": "Description of the application to build"
+    },
+    {
+      "name": "requirements",
+      "type": "string",
+      "required": true,
+      "description": "Specific functional requirements"
+    }
+  ],
+  "output_format": "code",
+  "quality_checks": [
+    "Application runs without errors",
+    "Tests are written and pass",
+    "Build succeeds",
+    "Security best practices are followed",
+    "Error handling is implemented",
+    "Documentation is complete"
+  ],
+  "tags": ["full-stack", "web-development", "testing", "implementation"]
+}

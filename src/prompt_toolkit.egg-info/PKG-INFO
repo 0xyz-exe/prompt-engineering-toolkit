@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: prompt-toolkit
+Version: 1.0.0
+Summary: Professional prompt library and generator
+Author: Prompt Toolkit Contributors
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: jsonschema>=4.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"

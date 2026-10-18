@@ -1,0 +1,32 @@
+{
+  "id": "PE-009",
+  "title": "Master Prompt Generator",
+  "version": "1.0.0",
+  "category": "ai-prompt-engineering",
+  "description": "Convert vague requests into structured, implementation-ready prompts with clear objectives, constraints, and verification criteria.",
+  "prompt": "Act as a Senior Prompt Engineer specializing in creating clear, effective, and verifiable prompts.\n\nYour task is to transform this request into a structured prompt:\n\nREQUEST: {user_request}\nTARGET AI: {target_ai}\n\n## Prompt Engineering Workflow\n\n### Phase 1: Clarify Intent\n1. What is the actual goal?\n2. What outcome does the user want?\n3. What context is missing?\n4. What constraints should apply?\n5. What format is expected?\n\n### Phase 2: Structure the Prompt\n\n#### Role Definition\nDefine who the AI should act as:\n- \"Act as a [specific role] with expertise in [domain]\"\n- Be specific (\"Senior Python Developer\" not \"developer\")\n- Include relevant context (\"with 10 years of experience in backend systems\")\n\n#### Context Provision\nProvide necessary background:\n- Current state\n- Project context\n- Technical constraints\n- Business requirements\n- Target audience\n\n#### Objective Statement\nClear, measurable goal:\n- What should be created/analyzed/solved?\n- Why is this needed?\n- What problem does it solve?\n\n#### Scope Definition\n**In Scope:**\n- What to include\n- What to focus on\n\n**Out of Scope:**\n- What to explicitly exclude\n- What not to spend time on\n\n#### Constraints\n- Technical constraints (languages, frameworks, tools)\n- Resource constraints (time, compute, cost)\n- Quality constraints (performance, security, accessibility)\n- Process constraints (methodologies, best practices)\n\n#### Input Specification\nDefine required inputs:\n- Input format\n- Required fields\n- Optional fields\n- Validation rules\n- Examples\n\n#### Output Specification\nDefine expected output:\n- Format (markdown, JSON, code, etc.)\n- Structure\n- Level of detail\n- Examples\n\n#### Workflow Steps\nBreak complex tasks into phases:\n1. Discovery/Analysis\n2. Planning\n3. Implementation\n4. Verification\n5. Documentation\n\n#### Quality Criteria\nDefine success measures:\n- Functional requirements met\n- Non-functional requirements met\n- Tests pass\n- Documentation complete\n- No security issues\n\n#### Verification Steps\nHow to verify success:\n- What to test\n- What to check\n- What evidence to provide\n- What not to claim without verification\n\n#### Error Handling\nHow to handle issues:\n- What to do when information is missing\n- How to handle ambiguity\n- When to ask for clarification\n- What assumptions are acceptable\n\n### Phase 3: Apply Prompt Engineering Best Practices\n\n#### Clarity\n- Use specific language\n- Avoid vague terms (\"good\", \"fast\", \"user-friendly\")\n- Define ambiguous terms\n- Use examples\n\n#### Completeness\n- Include all necessary context\n- Define all inputs\n- Specify expected outputs\n- List constraints\n\n#### Consistency\n- No contradictory instructions\n- Consistent terminology\n- Aligned success criteria\n\n#### Verifiability\n- Define measurable outcomes\n- Specify what evidence to provide\n- Include validation steps\n- Request verification, not claims\n\n#### Actionability\n- Clear next steps\n- Concrete actions, not abstract goals\n- Implementation details when needed\n\n### Phase 4: Optimize for Target AI\n\n**For Coding Agents (Claude, GPT, Copilot):**\n- Request tool use (read files, run tests)\n- Request verification output\n- Request incremental implementation\n\n**For General AI Assistants:**\n- Structure with clear sections\n- Use markdown formatting\n- Include examples\n\n**For Specialized Models:**\n- Adapt to model strengths\n- Use domain-specific terminology\n\n## Output Format\n\n### Generated Prompt\n```\n[Complete, structured prompt ready to use]\n```\n\n### Prompt Metadata\n- **Target AI:** {target_ai}\n- **Complexity:** Simple/Medium/Complex\n- **Expected Duration:** Short/Medium/Long\n- **Required Tools:** [List of tools/capabilities needed]\n\n### Usage Notes\n[How to use the prompt effectively]\n\n### Limitations\n[What this prompt cannot do or guarantee]\n\n## Definition of Done\n- Prompt has clear role definition\n- Objective is specific and measurable\n- Inputs and outputs are well-defined\n- Constraints are explicit\n- Verification steps are included\n- Quality criteria are measurable",
+  "inputs": [
+    {
+      "name": "user_request",
+      "type": "string",
+      "required": true,
+      "description": "The vague or unclear request to structure"
+    },
+    {
+      "name": "target_ai",
+      "type": "string",
+      "required": false,
+      "description": "Target AI system (e.g., Claude, GPT-4, Hermes Agent)"
+    }
+  ],
+  "output_format": "structured",
+  "quality_checks": [
+    "Prompt has clear objective",
+    "Inputs and outputs are defined",
+    "Constraints are explicit",
+    "Verification steps are included",
+    "No contradictory instructions",
+    "Success criteria are measurable"
+  ],
+  "tags": ["prompt-engineering", "ai", "prompt-optimization"]
+}

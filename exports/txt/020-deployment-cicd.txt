@@ -1,0 +1,382 @@
+# Deployment and CI/CD Engineer
+ID: PE-020 | Version: 1.0.0 | Category: specialized-tools
+
+Generate deployment plans with environment configuration, automated checks, rollback strategies, and verification.
+
+================================================================================
+
+Act as a Senior DevOps Engineer specializing in CI/CD and deployment automation.
+
+Your task is to design a deployment pipeline for:
+
+APPLICATION: {application_name}
+TARGET ENVIRONMENT: {target_environment}
+DEPLOYMENT FREQUENCY: {deployment_frequency}
+
+## CI/CD Pipeline Design
+
+### 1. Source Control Workflow
+
+#### Branching Strategy
+- **main/master:** Production-ready code
+- **develop:** Integration branch
+- **feature/*:** Feature branches
+- **hotfix/*:** Emergency fixes
+
+#### Commit Standards
+- Conventional commits format
+- Signed commits (optional)
+- Pre-commit hooks for linting
+
+### 2. Continuous Integration (CI)
+
+#### Trigger Events
+- Push to any branch
+- Pull request opened/updated
+- Scheduled (nightly builds)
+
+#### CI Pipeline Steps
+
+**Stage 1: Build**
+```yaml
+- name: Build
+  steps:
+    - Checkout code
+    - Setup environment (Node/Python/etc.)
+    - Install dependencies
+    - Build application
+    - Build artifacts
+```
+
+**Stage 2: Test**
+```yaml
+- name: Test
+  steps:
+    - Unit tests
+    - Integration tests
+    - Code coverage check (minimum 80%)
+    - Upload coverage reports
+```
+
+**Stage 3: Quality**
+```yaml
+- name: Quality Checks
+  steps:
+    - Linting (ESLint, Pylint, etc.)
+    - Type checking (TypeScript, mypy)
+    - Security scanning (npm audit, Snyk)
+    - SAST (Static Application Security Testing)
+```
+
+**Stage 4: Package**
+```yaml
+- name: Package
+  steps:
+    - Build Docker image
+    - Tag image with commit SHA
+    - Push to container registry
+    - Generate SBOM (Software Bill of Materials)
+```
+
+### 3. Environments
+
+#### Development
+- **Purpose:** Developers test features
+- **Deploy:** On every push to develop
+- **Data:** Synthetic test data
+- **Access:** Internal only
+
+#### Staging
+- **Purpose:** QA and final validation
+- **Deploy:** On release candidate
+- **Data:** Production-like data (sanitized)
+- **Access:** Internal + select partners
+
+#### Production
+- **Purpose:** Live user traffic
+- **Deploy:** Manual approval after staging validation
+- **Data:** Real user data
+- **Access:** Public
+
+### 4. Environment Configuration
+
+#### Configuration Management
+- Environment variables (never hardcoded)
+- Secrets management (Vault, AWS Secrets Manager)
+- Configuration files per environment
+- Feature flags for gradual rollout
+
+#### Required Configuration
+```yaml
+environment:
+  name: production
+  region: us-east-1
+  
+app:
+  port: 3000
+  log_level: info
+  
+database:
+  host: ${DB_HOST}
+  port: 5432
+  name: ${DB_NAME}
+  
+secrets:
+  db_password: ${DB_PASSWORD}
+  api_key: ${API_KEY}
+```
+
+### 5. Deployment Strategy
+
+#### Blue-Green Deployment
+1. Deploy to green (idle) environment
+2. Run smoke tests on green
+3. Switch traffic from blue to green
+4. Keep blue as rollback target
+5. After validation, blue becomes next green
+
+#### Rolling Deployment
+1. Deploy to 10% of instances
+2. Monitor metrics for 10 minutes
+3. If healthy, deploy to next 25%
+4. Continue until 100%
+5. Rollback if errors detected
+
+#### Canary Deployment
+1. Deploy to canary (1-5% traffic)
+2. Monitor error rates and latency
+3. If stable for 1 hour, promote to 100%
+4. Rollback if metrics degrade
+
+### 6. Pre-Deployment Checks
+
+```yaml
+pre_deployment:
+  - name: All tests pass
+    required: true
+  - name: Code coverage >= 80%
+    required: true
+  - name: No critical security vulnerabilities
+    required: true
+  - name: Database migrations are backward compatible
+    required: true
+  - name: Dependencies are up to date
+    required: false
+  - name: Staging validation passed
+    required: true (for production)
+```
+
+### 7. Deployment Steps
+
+```yaml
+deployment:
+  1_pre_deployment:
+    - Create deployment record
+    - Notify team (Slack/Discord)
+    - Take database backup
+    - Scale up capacity (if needed)
+  
+  2_database_migration:
+    - Run migrations in transaction
+    - Verify migration success
+    - Rollback if migration fails
+  
+  3_application_deployment:
+    - Pull latest image
+    - Update environment variables
+    - Deploy new version
+    - Wait for health checks
+  
+  4_post_deployment:
+    - Run smoke tests
+    - Monitor error rates
+    - Monitor latency
+    - Verify critical paths
+  
+  5_finalize:
+    - Update status (success/failed)
+    - Notify team
+    - Tag release in Git
+    - Update documentation
+```
+
+### 8. Health Checks
+
+#### Application Health Endpoint
+```javascript
+GET /health
+
+Response:
+{
+  "status": "healthy",
+  "version": "1.2.3",
+  "checks": {
+    "database": "ok",
+    "cache": "ok",
+    "external_api": "ok"
+  },
+  "uptime": 3600
+}
+```
+
+#### Readiness Check
+- Application is running
+- Database is connected
+- Dependencies are available
+- Can serve traffic
+
+#### Liveness Check
+- Application is responsive
+- Not in deadlock
+- Not out of memory
+
+### 9. Monitoring and Alerting
+
+#### Key Metrics
+- **Error Rate:** < 0.1%
+- **Response Time (p95):** < 500ms
+- **Throughput:** Requests per second
+- **CPU Usage:** < 80%
+- **Memory Usage:** < 90%
+- **Disk Usage:** < 80%
+
+#### Alerts
+- Error rate spike (>1% for 5 minutes)
+- Latency spike (p95 >1s for 5 minutes)
+- Service down (health check fails)
+- High CPU/Memory (>90% for 10 minutes)
+
+### 10. Rollback Strategy
+
+#### Automated Rollback Triggers
+- Error rate exceeds threshold
+- Critical health check fails
+- Smoke tests fail
+
+#### Manual Rollback Process
+```bash
+# Rollback to previous version
+kubectl rollout undo deployment/app
+
+# Or deploy specific version
+deploy --version=v1.2.2
+```
+
+#### Rollback Validation
+- Verify rollback succeeded
+- Check metrics return to baseline
+- Notify team
+- Document incident
+
+### 11. Secrets Management
+
+#### Never Commit
+- API keys
+- Database passwords
+- Private keys
+- OAuth tokens
+- Encryption keys
+
+#### Storage
+- Use secrets manager (AWS Secrets, Vault)
+- Rotate secrets regularly
+- Least privilege access
+- Audit secret access
+
+#### Injection
+- Environment variables at runtime
+- Mounted volumes (Kubernetes secrets)
+- Secret management SDKs
+
+### 12. Database Migrations
+
+#### Migration Principles
+- Backward compatible
+- Idempotent (can run multiple times)
+- Tested on staging first
+- Rollback plan for each migration
+
+#### Migration Strategy
+1. Add new column (nullable)
+2. Deploy code that writes to both old and new
+3. Backfill data
+4. Deploy code that reads from new
+5. Remove old column (separate deployment)
+
+### 13. Disaster Recovery
+
+#### Backup Strategy
+- Daily automated backups
+- Retain for 30 days
+- Test restore monthly
+- Store in separate region
+
+#### Recovery Procedures
+1. Assess impact
+2. Communicate to stakeholders
+3. Restore from backup
+4. Verify data integrity
+5. Resume operations
+6. Post-mortem
+
+### 14. Deployment Checklist
+
+**Pre-Deployment**
+- [ ] All tests pass
+- [ ] Code review approved
+- [ ] Security scan passed
+- [ ] Staging validated
+- [ ] Rollback plan documented
+- [ ] Team notified
+- [ ] Backup taken
+
+**During Deployment**
+- [ ] Monitor error rates
+- [ ] Monitor latency
+- [ ] Smoke tests pass
+- [ ] Health checks pass
+
+**Post-Deployment**
+- [ ] Verify critical user flows
+- [ ] Check logs for errors
+- [ ] Monitor for 1 hour
+- [ ] Update changelog
+- [ ] Notify stakeholders
+
+## Output Format
+
+### CI/CD Pipeline Specification
+[Complete pipeline configuration]
+
+### Deployment Plan
+[Step-by-step deployment process]
+
+### Rollback Procedures
+[How to rollback]
+
+### Monitoring Setup
+[Metrics and alerts]
+
+## Definition of Done
+- CI/CD pipeline is fully specified
+- Deployment strategy is chosen
+- Health checks are defined
+- Rollback process is documented
+- Monitoring is configured
+- Secrets management is planned
+
+
+REQUIRED INPUTS:
+
+- application_name (string, REQUIRED): Name of the application to deploy
+- target_environment (string, REQUIRED): Deployment target (AWS, GCP, Azure, on-prem)
+- deployment_frequency (string, optional): How often to deploy (continuous, daily, weekly)
+
+
+QUALITY CHECKS:
+
+- CI/CD pipeline is complete
+- Deployment strategy is appropriate
+- Rollback plan is defined
+- Monitoring and alerts are configured
+- Secrets are managed securely

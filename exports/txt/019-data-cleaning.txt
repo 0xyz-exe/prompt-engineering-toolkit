@@ -1,0 +1,330 @@
+# Data Cleaning and Transformation
+ID: PE-019 | Version: 1.0.0 | Category: specialized-tools
+
+Specify data cleaning pipelines with input schemas, validation, transformation rules, and data integrity checks.
+
+================================================================================
+
+Act as a Senior Data Engineer specializing in data quality and ETL pipelines.
+
+Your task is to design a data cleaning pipeline for:
+
+DATA SOURCE: {data_source}
+DATA ISSUES: {known_issues}
+TARGET FORMAT: {target_format}
+
+## Data Cleaning Pipeline Design
+
+### 1. Data Profiling
+
+#### Initial Assessment
+- What is the source format? (CSV, JSON, XML, database, API)
+- What is the data volume?
+- What is the data structure?
+- What fields are present?
+- What data types are expected?
+
+#### Quality Issues to Identify
+- Missing values
+- Duplicate records
+- Inconsistent formatting
+- Invalid values
+- Outliers
+- Encoding issues
+- Data type mismatches
+- Referential integrity violations
+
+### 2. Input Schema Definition
+
+```yaml
+input_schema:
+  fields:
+    - name: field_name
+      type: string|number|date|boolean
+      required: true|false
+      description: "Field description"
+      constraints:
+        - min_length: 1
+        - max_length: 255
+        - pattern: "regex"
+        - enum: [value1, value2]
+```
+
+### 3. Validation Rules
+
+#### Field-Level Validation
+
+**Field: [field_name]**
+- **Type:** [Expected type]
+- **Required:** Yes/No
+- **Format:** [Pattern or format]
+- **Range:** [Min-Max for numbers]
+- **Allowed Values:** [Enum if applicable]
+- **Custom Rules:** [Specific validation logic]
+
+#### Record-Level Validation
+- Cross-field dependencies
+- Business logic rules
+- Uniqueness constraints
+- Referential integrity
+
+#### Validation Actions
+- **Reject:** Record fails validation, exclude from output
+- **Flag:** Record passes but has warnings
+- **Accept:** Record passes all validation
+
+### 4. Missing Value Handling
+
+**Field: [field_name]**
+- **Strategy:** 
+  - Drop records with missing values
+  - Fill with default value
+  - Fill with mean/median/mode
+  - Forward fill / Backward fill
+  - Interpolate
+  - Leave as null (if allowed)
+- **Justification:** [Why this strategy]
+
+### 5. Data Type Conversion
+
+**Field: [field_name]**
+- **Source Type:** [Current type]
+- **Target Type:** [Desired type]
+- **Conversion Logic:**
+  ```python
+  # Example conversion
+  if value:
+      converted = int(value)
+  ```
+- **Error Handling:** [What to do if conversion fails]
+
+### 6. Standardization Rules
+
+#### Text Standardization
+- **Case:** lowercase / uppercase / title case
+- **Whitespace:** trim / normalize
+- **Special characters:** remove / replace
+- **Encoding:** UTF-8 normalization
+
+#### Date/Time Standardization
+- **Input Formats:** [List of possible formats]
+- **Output Format:** ISO 8601 (YYYY-MM-DD HH:MM:SS)
+- **Timezone:** [How to handle timezones]
+
+#### Numeric Standardization
+- **Decimal places:** [Precision]
+- **Units:** [Conversion if needed]
+- **Negative values:** [How to handle]
+
+#### Categorical Standardization
+- **Value Mapping:**
+  ```yaml
+  mappings:
+    "Yes": true
+    "yes": true
+    "Y": true
+    "No": false
+    "no": false
+    "N": false
+  ```
+
+### 7. Deduplication Strategy
+
+#### Duplicate Detection
+- **Primary Key:** [Fields that define uniqueness]
+- **Fuzzy Matching:** [If needed for near-duplicates]
+- **Matching Rules:** [How to identify duplicates]
+
+#### Duplicate Resolution
+- Keep first occurrence
+- Keep last occurrence
+- Keep most complete record
+- Merge records
+- Flag for manual review
+
+### 8. Transformation Rules
+
+#### Derived Fields
+```python
+# Example: Calculate age from birthdate
+age = current_year - birth_year
+```
+
+#### Field Splitting
+```python
+# Example: Split full name
+first_name, last_name = full_name.split(' ', 1)
+```
+
+#### Field Concatenation
+```python
+# Example: Create full address
+full_address = f"{street}, {city}, {state} {zip}"
+```
+
+### 9. Outlier Handling
+
+**Field: [field_name]**
+- **Detection Method:**
+  - Statistical (IQR, Z-score)
+  - Domain rules (e.g., age > 120)
+- **Action:**
+  - Remove outliers
+  - Cap at threshold
+  - Flag for review
+  - Keep as-is
+
+### 10. Output Schema
+
+```yaml
+output_schema:
+  format: csv|json|parquet|database
+  fields:
+    - name: field_name
+      type: type
+      nullable: true|false
+      description: "Description"
+```
+
+### 11. Quality Checks
+
+#### Pre-Processing Checks
+- File exists and is readable
+- File size is reasonable
+- Format is valid
+- Encoding is correct
+
+#### Post-Processing Checks
+- Record count matches expected
+- No unexpected nulls in required fields
+- Data types are correct
+- Value ranges are valid
+- Referential integrity maintained
+- No duplicates (if required)
+
+#### Quality Metrics
+```yaml
+quality_metrics:
+  total_records: [count]
+  valid_records: [count]
+  rejected_records: [count]
+  flagged_records: [count]
+  completeness: [percentage]
+  accuracy: [percentage]
+```
+
+### 12. Error Handling
+
+#### Error Types
+- **Parsing Errors:** Cannot read source data
+- **Validation Errors:** Data fails validation
+- **Transformation Errors:** Cannot convert/transform
+- **System Errors:** Infrastructure issues
+
+#### Error Logging
+For each error:
+- Timestamp
+- Error type
+- Field name
+- Record identifier
+- Error message
+- Original value
+
+### 13. Transformation Log
+
+Document all changes:
+```csv
+record_id,field,original_value,new_value,transformation,timestamp
+123,email,"Test@Email.com","test@email.com","lowercase","2024-01-01T10:00:00Z"
+```
+
+### 14. Pipeline Implementation
+
+```python
+def clean_data(input_file, output_file):
+    # 1. Load data
+    data = load_data(input_file)
+    
+    # 2. Validate
+    data = validate(data)
+    
+    # 3. Handle missing values
+    data = handle_missing(data)
+    
+    # 4. Standardize
+    data = standardize(data)
+    
+    # 5. Deduplicate
+    data = deduplicate(data)
+    
+    # 6. Transform
+    data = transform(data)
+    
+    # 7. Validate output
+    data = validate_output(data)
+    
+    # 8. Save
+    save_data(data, output_file)
+    
+    # 9. Generate report
+    generate_quality_report()
+```
+
+### 15. Testing Strategy
+
+#### Test Cases
+1. **Valid data:** Passes through unchanged
+2. **Missing values:** Handled per strategy
+3. **Invalid types:** Rejected or converted
+4. **Duplicates:** Deduplicated correctly
+5. **Outliers:** Handled per strategy
+6. **Edge cases:** Empty strings, nulls, special chars
+
+## Output Format
+
+### Data Cleaning Specification
+
+#### Input Schema
+[Complete input schema]
+
+#### Validation Rules
+[All validation rules]
+
+#### Transformation Rules
+[All transformations]
+
+#### Output Schema
+[Complete output schema]
+
+#### Quality Metrics
+[Expected metrics]
+
+### Implementation Code
+[Executable code or pseudocode]
+
+### Test Data
+[Sample input and expected output]
+
+## Definition of Done
+- Input and output schemas are complete
+- Validation rules are comprehensive
+- Transformation logic is specified
+- Missing value strategy is defined
+- Quality checks are defined
+- Error handling is specified
+
+
+REQUIRED INPUTS:
+
+- data_source (string, REQUIRED): Description of the data source
+- known_issues (string, optional): Known data quality issues
+- target_format (string, REQUIRED): Desired output format
+
+
+QUALITY CHECKS:
+
+- Input schema is complete
+- Validation rules are comprehensive
+- Transformation logic is clear
+- Error handling is specified
+- Quality metrics are defined

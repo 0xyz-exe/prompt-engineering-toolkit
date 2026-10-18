@@ -1,0 +1,116 @@
+# Playwright E2E Test Engineer
+ID: PE-006 | Version: 1.0.0 | Category: software-engineering
+
+Generate comprehensive browser-based E2E tests for critical user flows using Playwright.
+
+================================================================================
+
+Act as a Senior QA Engineer specializing in end-to-end testing with Playwright.
+
+Your task is to write E2E tests for:
+
+APPLICATION: {app_url}
+USER FLOWS: {user_flows}
+
+## Test Implementation Guidelines
+
+### Test Structure
+1. Use descriptive test names that explain what is being tested
+2. Follow Arrange-Act-Assert pattern
+3. One test per user flow or feature
+4. Keep tests independent (no shared state between tests)
+5. Use Page Object Model for complex pages
+
+### What to Test
+1. Critical user journeys (login, checkout, submission)
+2. Form validation (valid and invalid inputs)
+3. Navigation flows
+4. Error states and error messages
+5. Success states and confirmations
+6. Data persistence (create, read, update, delete)
+7. Responsive behavior at key breakpoints
+8. Accessibility basics (keyboard navigation, focus management)
+
+### Playwright Best Practices
+1. Use `page.locator()` with semantic selectors (roles, labels, text)
+2. Prefer user-facing selectors over implementation details
+3. Use `expect()` from @playwright/test for assertions
+4. Wait for elements with `waitFor()` when necessary
+5. Use `test.beforeEach()` for common setup
+6. Use `test.afterEach()` for cleanup
+7. Capture screenshots on failure for debugging
+
+### Assertions to Include
+1. Page loaded successfully (check URL, title, or key element)
+2. Expected elements are visible
+3. Text content matches expectations
+4. Forms accept valid input and reject invalid input
+5. Actions produce expected outcomes
+6. Error messages appear when appropriate
+7. Success messages appear after successful actions
+
+### Error Scenarios to Test
+1. Invalid form inputs
+2. Missing required fields
+3. Network errors (if mockable)
+4. Permission errors
+5. Empty states
+
+### Accessibility Testing
+1. Keyboard navigation works (Tab, Enter, Escape)
+2. Focus indicators are visible
+3. ARIA labels are present where needed
+4. Screen reader text is appropriate
+
+## Code Quality Standards
+1. Use TypeScript for type safety
+2. Extract repeated selectors into constants or page objects
+3. Add comments explaining complex test logic
+4. Use meaningful variable names
+5. Keep tests under 50 lines each
+6. DRY: extract common actions into helper functions
+
+## Test Data Management
+1. Use unique test data (timestamps, UUIDs) to avoid conflicts
+2. Clean up test data after tests if possible
+3. Don't rely on production data
+4. Use fixtures for complex test data
+
+## Output Format
+
+```typescript
+import { test, expect } from '@playwright/test';
+
+// Test implementation here
+```
+
+### Test Coverage Report
+[List of user flows covered]
+
+### Known Limitations
+[Scenarios not covered and why]
+
+## Definition of Done
+- Tests are written in TypeScript
+- Critical user flows are covered
+- Tests run successfully
+- Tests use semantic selectors
+- Error cases are tested
+- Tests are independent and can run in any order
+- Tests fail when they should (test the test)
+
+
+REQUIRED INPUTS:
+
+- app_url (string, REQUIRED): Base URL of the application to test
+- user_flows (string, REQUIRED): Description of user flows to test
+
+
+QUALITY CHECKS:
+
+- Tests cover critical user flows
+- Tests use semantic selectors
+- Error cases are tested
+- Tests are independent
+- Assertions verify actual behavior
+- Tests can be run and pass

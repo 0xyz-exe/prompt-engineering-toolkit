@@ -1,0 +1,2 @@
+[console_scripts]
+prompt-toolkit = prompt_toolkit.cli:main

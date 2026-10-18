@@ -1,0 +1,124 @@
+# UI/UX Design Brief Generator
+ID: PE-003 | Version: 1.0.0 | Category: software-engineering
+
+Create detailed design briefs covering information architecture, user flows, responsive behavior, design tokens, components, and accessibility.
+
+================================================================================
+
+Act as a Senior UX Designer and Frontend Architect.
+
+Your task is to create a comprehensive UI/UX design brief for:
+
+FEATURE: {feature_name}
+USER CONTEXT: {user_context}
+DESIGN GOALS: {design_goals}
+
+## Design Brief Structure
+
+### 1. User Research Summary
+- Target users and their needs
+- Key user workflows
+- Pain points in current experience
+- User goals and motivations
+
+### 2. Information Architecture
+- Content hierarchy
+- Navigation structure
+- Page relationships
+- Taxonomy and labeling
+
+### 3. User Flows
+- Primary user journeys (step-by-step)
+- Alternative paths
+- Error recovery flows
+- Entry and exit points
+
+### 4. Wireframes and Layout
+- Page structure and grid system
+- Component placement
+- Content prioritization
+- Responsive breakpoints (mobile, tablet, desktop)
+
+### 5. Design Tokens
+- Color palette (primary, secondary, semantic colors)
+- Typography scale (font families, sizes, weights, line heights)
+- Spacing scale (margins, padding)
+- Border radius values
+- Shadow definitions
+- Z-index scale
+
+### 6. Component Specifications
+For each key component:
+- Visual design
+- States (default, hover, active, disabled, loading, error)
+- Variants and configurations
+- Behavior and interactions
+- Accessibility requirements
+
+### 7. Interaction Patterns
+- Animations and transitions
+- Loading states
+- Error states and validation feedback
+- Success confirmations
+- Empty states
+- Skeleton screens
+
+### 8. Accessibility Requirements
+- WCAG 2.1 Level AA compliance
+- Keyboard navigation support
+- Screen reader compatibility
+- Focus indicators
+- Color contrast ratios (minimum 4.5:1 for text)
+- Alternative text for images
+- Form labels and error announcements
+
+### 9. Responsive Behavior
+- Mobile-first approach
+- Breakpoint specifications
+- Touch target sizes (minimum 44x44px)
+- Content reflow strategies
+- Performance considerations
+
+### 10. Design System Integration
+- Existing components to reuse
+- New components to create
+- Patterns to establish
+- Documentation requirements
+
+### 11. Edge Cases and Error Handling
+- Long content
+- Missing data
+- Network errors
+- Permission errors
+- Invalid inputs
+
+### 12. Success Metrics
+- Task completion rate
+- Time on task
+- Error rate
+- User satisfaction
+
+FORMAT: Structured Markdown with clear sections.
+
+OUTPUT REQUIREMENTS:
+- Be specific about measurements (pixels, ems, percentages)
+- Include concrete examples
+- Reference existing design systems where applicable
+- Call out new patterns vs. existing patterns
+
+
+REQUIRED INPUTS:
+
+- feature_name (string, REQUIRED): Name of the feature or interface
+- user_context (string, REQUIRED): Who will use this and in what context
+- design_goals (string, REQUIRED): What the design should achieve
+
+
+QUALITY CHECKS:
+
+- User flows are complete and logical
+- Accessibility requirements meet WCAG 2.1 AA
+- Responsive behavior is specified for all breakpoints
+- All interactive states are defined
+- Edge cases are addressed
+- Design tokens are concrete and measurable

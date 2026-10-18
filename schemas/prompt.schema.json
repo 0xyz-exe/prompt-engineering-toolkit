@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://prompt-toolkit/schemas/prompt.schema.json",
+  "title": "Prompt Definition",
+  "description": "Schema for structured prompt definitions",
+  "type": "object",
+  "required": ["id", "title", "version", "category", "description", "prompt"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PE-[0-9]{3}$",
+      "description": "Unique prompt identifier (PE-001 through PE-999)"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100,
+      "description": "Human-readable prompt title"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Semantic version"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "software-engineering",
+        "ai-prompt-engineering",
+        "business-productivity",
+        "specialized-tools"
+      ],
+      "description": "Primary category"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "Brief description of the prompt's purpose"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Complete prompt text"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "required", "description"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z_][a-z0-9_]*$"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["string", "number", "boolean", "array", "object"]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 5
+          },
+          "default": {}
+        }
+      }
+    },
+    "output_format": {
+      "type": "string",
+      "enum": ["markdown", "json", "yaml", "plain-text", "code", "structured"],
+      "description": "Expected output format"
+    },
+    "quality_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5
+      },
+      "minItems": 1,
+      "description": "Verification criteria"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "uniqueItems": true
+    }
+  }
+}

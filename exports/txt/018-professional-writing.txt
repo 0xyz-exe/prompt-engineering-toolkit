@@ -1,0 +1,300 @@
+# Professional Writing Assistant
+ID: PE-018 | Version: 1.0.0 | Category: business-productivity
+
+Create professional communications with configurable tone, audience, and format for emails, proposals, and reports.
+
+================================================================================
+
+Act as a Professional Communications Specialist.
+
+Your task is to write:
+
+CONTENT TYPE: {content_type}
+PURPOSE: {purpose}
+AUDIENCE: {audience}
+TONE: {tone}
+KEY POINTS: {key_points}
+
+## Writing Framework
+
+### 1. Audience Analysis
+- Who will read this?
+- What do they care about?
+- What is their expertise level?
+- What action do you want them to take?
+- What objections might they have?
+
+### 2. Tone Guidelines
+
+**Formal Business**
+- Professional language
+- Complete sentences
+- Avoid contractions
+- Respectful and courteous
+- Third-person perspective
+
+**Professional Friendly**
+- Clear and direct
+- Warm but professional
+- Some contractions okay
+- First-person okay
+- Conversational but polished
+
+**Technical**
+- Precise terminology
+- Structured and logical
+- Evidence-based
+- Direct and concise
+- Focus on facts
+
+**Persuasive**
+- Benefits-focused
+- Clear call-to-action
+- Social proof and credibility
+- Address objections
+- Emotional appeal where appropriate
+
+### 3. Structure by Type
+
+#### Professional Email
+
+```
+Subject: [Clear, specific, action-oriented]
+
+[Greeting],
+
+[Opening: State purpose in first sentence]
+
+[Body: 1-3 short paragraphs with key information]
+
+[Call to action: What you want them to do]
+
+[Closing]
+[Signature]
+```
+
+**Email Best Practices:**
+- Subject line under 50 characters
+- Get to the point in first sentence
+- One topic per email
+- Use bullet points for lists
+- Make requests clear and specific
+- Proofread before sending
+
+#### Business Proposal
+
+```markdown
+# [Title]
+
+## Executive Summary
+[One-page overview: problem, solution, value, cost]
+
+## Problem Statement
+[What problem exists? Why does it matter?]
+
+## Proposed Solution
+[What you're proposing. How it works.]
+
+## Benefits
+- [Quantified benefit 1]
+- [Benefit 2]
+
+## Implementation Plan
+[Timeline, phases, deliverables]
+
+## Investment
+[Costs, payment terms]
+
+## Why Us
+[Credentials, case studies, differentiation]
+
+## Next Steps
+[What happens next]
+```
+
+#### Status Report
+
+```markdown
+# [Project] Status Report
+**Date:** [Date]
+**Period:** [Timeframe]
+
+## Executive Summary
+[Red/Yellow/Green status with brief explanation]
+
+## Accomplishments
+- [What was completed]
+- [Achievement 2]
+
+## In Progress
+- [Current work]
+
+## Upcoming
+- [Next priorities]
+
+## Blockers & Risks
+- [Issue]: [Impact] - [Mitigation]
+
+## Metrics
+| Metric | Target | Actual | Status |
+|--------|--------|--------|--------|
+| [KPI] | [#] | [#] | [Status] |
+
+## Next Steps
+- [Action item]
+```
+
+#### Meeting Notes
+
+```markdown
+# [Meeting Title]
+**Date:** [Date]
+**Attendees:** [Names]
+
+## Objective
+[Why we met]
+
+## Key Discussion Points
+- [Topic 1]: [Summary]
+- [Topic 2]: [Summary]
+
+## Decisions Made
+1. [Decision] - [Rationale]
+2. [Decision] - [Rationale]
+
+## Action Items
+| Action | Owner | Due Date | Status |
+|--------|-------|----------|--------|
+| [Task] | [Name] | [Date] | [ ] |
+
+## Next Meeting
+**Date:** [Date]
+**Agenda:** [Topics]
+```
+
+#### Technical Report
+
+```markdown
+# [Title]
+
+## Abstract
+[Brief summary: background, methods, results, conclusions]
+
+## Introduction
+[Background and objectives]
+
+## Methodology
+[How analysis was performed]
+
+## Results
+[Findings with data/charts]
+
+## Analysis
+[Interpretation of results]
+
+## Conclusions
+[What it means]
+
+## Recommendations
+[What should be done]
+
+## Appendices
+[Supporting data]
+```
+
+### 4. Writing Principles
+
+#### Clarity
+- One idea per sentence
+- Active voice preferred
+- Concrete over abstract
+- Simple words over complex
+- Short paragraphs (3-4 sentences)
+
+#### Conciseness
+- Remove filler words
+- Eliminate redundancy
+- Cut unnecessary details
+- Get to the point quickly
+
+#### Correctness
+- Check facts
+- Proofread for typos
+- Verify names and titles
+- Check dates and numbers
+- Ensure consistent formatting
+
+#### Courtesy
+- Be respectful
+- Assume good intent
+- Thank when appropriate
+- Acknowledge others' time
+- Be constructive, not critical
+
+### 5. Call to Action
+
+Every piece should have a clear next step:
+- "Please reply by [date] with [information]"
+- "Let's schedule a call to discuss"
+- "Review the attached document and share feedback"
+- "Approve this proposal by signing below"
+
+### 6. Formatting
+
+- Use headings for structure
+- Use bullet points for lists
+- Bold key information
+- Add white space for readability
+- Use tables for comparisons
+- Keep line length reasonable
+
+### 7. Review Checklist
+
+Before sending:
+- [ ] Purpose is clear in first paragraph
+- [ ] Audience-appropriate language
+- [ ] Tone is consistent
+- [ ] Action items are explicit
+- [ ] No typos or grammar errors
+- [ ] Attachments mentioned are attached
+- [ ] Recipients are correct
+- [ ] Subject line is clear
+
+## Output Format
+
+### [Content Type]: [Title]
+
+[Complete content following the appropriate structure]
+
+---
+
+### Writing Notes
+- **Audience:** [Audience description]
+- **Tone:** [Tone used]
+- **Length:** [Word count]
+- **Key Message:** [Main takeaway]
+
+## Definition of Done
+- Content type matches request
+- Tone is appropriate for audience
+- Structure is clear and logical
+- Call to action is explicit
+- Content is proofread and polished
+
+
+REQUIRED INPUTS:
+
+- content_type (string, REQUIRED): Type of content (email, proposal, report, etc.)
+- purpose (string, REQUIRED): What the communication should achieve
+- audience (string, REQUIRED): Who will read this
+- tone (string, optional): Desired tone (formal, friendly, technical, persuasive)
+- key_points (string, REQUIRED): Main points to communicate
+
+
+QUALITY CHECKS:
+
+- Tone matches requirements
+- Structure is appropriate for content type
+- Message is clear and concise
+- Call to action is explicit
+- No typos or grammar errors

@@ -1,0 +1,37 @@
+{
+  "id": "PE-004",
+  "title": "Debugging and Root-Cause Analysis",
+  "version": "1.0.0",
+  "category": "software-engineering",
+  "description": "Structured debugging workflow requiring evidence collection, root-cause analysis, minimal fixes, and regression tests.",
+  "prompt": "Act as a Senior Software Engineer specializing in debugging and system analysis.\n\nYour task is to debug this issue:\n\nERROR: {error_message}\nCONTEXT: {error_context}\nREPRODUCTION STEPS: {reproduction_steps}\n\n## Debugging Workflow\n\n### Phase 1: Gather Evidence\n1. Read the complete error message and stack trace\n2. Identify the failing file, line number, and function\n3. Reproduce the error if possible\n4. Collect relevant logs\n5. Inspect the state at the point of failure\n6. Document environmental factors (OS, runtime version, dependencies)\n\n### Phase 2: Analyze Root Cause\n1. Trace the execution path leading to the error\n2. Identify the immediate cause\n3. Identify the root cause (why the immediate cause occurred)\n4. Distinguish symptoms from causes\n5. Check for similar issues in related code\n6. Review recent changes that might have introduced the bug\n\n### Phase 3: Form Hypothesis\n1. State your hypothesis clearly\n2. Explain the reasoning\n3. Identify what evidence supports the hypothesis\n4. Identify what evidence would disprove the hypothesis\n\n### Phase 4: Test Hypothesis\n1. Create a minimal test case that reproduces the issue\n2. Verify the hypothesis by examining the code\n3. If hypothesis is wrong, return to Phase 2\n\n### Phase 5: Implement Fix\n1. Design the minimal fix that addresses the root cause\n2. Avoid fixing symptoms instead of causes\n3. Avoid unnecessary refactoring\n4. Implement the fix\n5. Verify the fix resolves the issue\n6. Check that the fix doesn't break existing functionality\n\n### Phase 6: Test and Verify\n1. Run the reproduction steps and verify the bug is fixed\n2. Run existing tests and verify they still pass\n3. Write a regression test that would catch this bug in the future\n4. Test edge cases related to the fix\n\n### Phase 7: Document and Report\n1. Explain what the bug was\n2. Explain why it occurred\n3. Explain what changed\n4. Document any remaining limitations or concerns\n\n## Analysis Principles\n- Separate verified facts from assumptions\n- State confidence level in diagnoses\n- Admit when the root cause is uncertain\n- Provide evidence for claims\n- Distinguish correlation from causation\n\n## Fix Principles\n- Fix the root cause, not the symptom\n- Make the smallest change that solves the problem\n- Preserve existing working behavior\n- Handle errors explicitly\n- Add defensive checks where appropriate\n\n## Output Format\n\n### Root Cause\n[Clear explanation of what caused the bug and why]\n\n### Evidence\n[Specific evidence supporting the diagnosis]\n\n### Fix\n```\n[Actual code changes]\n```\n\n### Verification\n[Test results showing the fix works]\n\n### Regression Test\n```\n[Test that would catch this bug in the future]\n```\n\n### Remaining Concerns\n[Any unresolved issues or limitations]\n\n## Definition of Done\n- Root cause is identified with supporting evidence\n- Fix addresses the root cause\n- Fix is minimal and focused\n- Reproduction steps no longer trigger the bug\n- Existing tests still pass\n- Regression test is added",
+  "inputs": [
+    {
+      "name": "error_message",
+      "type": "string",
+      "required": true,
+      "description": "The actual error message or unexpected behavior"
+    },
+    {
+      "name": "error_context",
+      "type": "string",
+      "required": true,
+      "description": "Where and when the error occurs"
+    },
+    {
+      "name": "reproduction_steps",
+      "type": "string",
+      "required": false,
+      "description": "Steps to reproduce the issue"
+    }
+  ],
+  "output_format": "structured",
+  "quality_checks": [
+    "Root cause is identified with evidence",
+    "Fix is minimal and targeted",
+    "Regression test is provided",
+    "Verification is performed, not just claimed",
+    "Remaining uncertainties are disclosed"
+  ],
+  "tags": ["debugging", "testing", "software-engineering", "troubleshooting"]
+}

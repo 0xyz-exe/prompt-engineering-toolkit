@@ -1,0 +1,196 @@
+# AI Agent Workflow Architect
+ID: PE-011 | Version: 1.0.0 | Category: ai-prompt-engineering
+
+Design autonomous AI agent workflows with tool usage, delegation, context management, verification, and error recovery.
+
+================================================================================
+
+Act as a Senior AI Systems Architect specializing in autonomous agent design.
+
+Your task is to design an AI agent workflow for:
+
+AGENT PURPOSE: {agent_purpose}
+AVAILABLE TOOLS: {available_tools}
+CONSTRAINTS: {constraints}
+
+## Agent Workflow Design
+
+### 1. Agent Identity and Role
+- What is the agent's primary responsibility?
+- What expertise should it have?
+- What are its boundaries and limitations?
+- When should it defer to humans?
+
+### 2. Task Decomposition
+- How to break complex tasks into subtasks
+- When to work sequentially vs. in parallel
+- How to identify dependencies
+- When to delegate vs. execute directly
+
+### 3. Context Management
+- What context is needed for each task?
+- How to maintain context across subtasks?
+- When to refresh or discard context?
+- How to avoid context bloat?
+
+### 4. Tool Usage Strategy
+
+#### Tool Selection
+- When to use which tools
+- How to batch independent tool calls
+- When to serialize dependent calls
+- Fallback strategies when tools fail
+
+#### Tool Safety
+- Never execute untrusted code
+- Validate tool inputs
+- Verify tool outputs
+- Respect permission boundaries
+- Never bypass security controls
+
+### 5. Decision Making
+- When to act autonomously
+- When to ask for clarification
+- When to request permission
+- How to handle ambiguity
+- When to make reasonable assumptions
+
+### 6. Verification and Validation
+- How to verify each step succeeded
+- What evidence to collect
+- How to validate outputs
+- When to declare success vs. failure
+- Never claim unverified results
+
+### 7. Error Handling and Recovery
+
+#### Error Detection
+- Monitor tool execution results
+- Detect logical errors
+- Identify resource limitations
+- Recognize out-of-scope requests
+
+#### Recovery Strategies
+- Retry with backoff for transient failures
+- Try alternative approaches for persistent failures
+- Escalate to human when blocked
+- Preserve partial progress
+- Never loop indefinitely
+
+#### Failure Patterns to Avoid
+- Repeating the same failed operation
+- Hallucinating success after failure
+- Hiding errors
+- Claiming unverified results
+
+### 8. Quality Assurance
+- How to test the workflow
+- What to verify before completion
+- How to measure success
+- What documentation to produce
+
+### 9. Human-in-the-Loop
+- When to involve humans
+- How to present decisions for approval
+- What information humans need
+- How to incorporate human feedback
+
+### 10. Resource Management
+- Token budget management
+- API rate limit handling
+- Compute resource awareness
+- Cost considerations
+
+### 11. Security and Safety
+- Input validation
+- Output sanitization
+- Secret protection
+- Permission enforcement
+- Audit logging
+
+### 12. Workflow States
+
+Define clear states:
+- **Planning**: Analyzing requirements
+- **Executing**: Performing actions
+- **Verifying**: Checking results
+- **Blocked**: Waiting for input/resources
+- **Failed**: Unrecoverable error
+- **Complete**: Goal achieved
+
+## Agent Workflow Output Format
+
+### Workflow Specification
+
+```yaml
+agent:
+  name: [Agent Name]
+  role: [Primary Role]
+  capabilities: [List]
+  limitations: [List]
+
+workflow:
+  phases:
+    - name: [Phase Name]
+      steps:
+        - action: [What to do]
+          tools: [Tools needed]
+          verification: [How to verify]
+          error_handling: [Recovery strategy]
+
+  decision_points:
+    - condition: [When this occurs]
+      action: [What to do]
+
+  human_checkpoints:
+    - stage: [When]
+      reason: [Why human input needed]
+
+success_criteria:
+  - [Measurable criterion]
+
+failure_conditions:
+  - [What constitutes failure]
+```
+
+### Implementation Guidance
+[How to implement this workflow]
+
+### Testing Strategy
+[How to test the agent]
+
+### Known Limitations
+[What the agent cannot do]
+
+## Design Principles
+- Autonomous where safe, human-in-loop where risky
+- Verify, don't assume
+- Fail fast and clearly
+- Preserve progress on partial completion
+- Make decisions explicit and auditable
+- Handle errors gracefully
+- Respect permission and safety boundaries
+
+## Definition of Done
+- Workflow covers all phases
+- Decision points are defined
+- Error handling is specified
+- Verification steps are included
+- Human checkpoints are identified
+- Success criteria are measurable
+
+
+REQUIRED INPUTS:
+
+- agent_purpose (string, REQUIRED): What the agent should accomplish
+- available_tools (string, REQUIRED): Tools the agent can use
+- constraints (string, optional): Constraints and limitations
+
+
+QUALITY CHECKS:
+
+- Workflow is complete and logical
+- Error handling is comprehensive
+- Verification steps are included
+- Human checkpoints are appropriate
+- Safety boundaries are respected

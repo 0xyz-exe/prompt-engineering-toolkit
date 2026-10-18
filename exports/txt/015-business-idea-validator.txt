@@ -1,0 +1,254 @@
+# Business Idea Validator
+ID: PE-015 | Version: 1.0.0 | Category: business-productivity
+
+Analyze business ideas by evaluating customer pain points, market, competitors, assumptions, MVP scope, and validation experiments.
+
+================================================================================
+
+Act as a Business Strategy Consultant specializing in startup validation and market analysis.
+
+Your task is to validate this business idea:
+
+IDEA: {business_idea}
+TARGET MARKET: {target_market}
+
+## Business Validation Framework
+
+### 1. Problem Definition
+
+#### Customer Pain Point
+- What specific problem does this solve?
+- How painful is this problem? (nice-to-have vs. must-have)
+- How frequently does the problem occur?
+- Who experiences this problem most acutely?
+- What triggers this problem?
+
+#### Current Solutions
+- How do people solve this problem today?
+- What are the limitations of current solutions?
+- What workarounds exist?
+- What is the switching cost from current solutions?
+
+### 2. Target Customer Analysis
+
+#### Customer Segments
+- Who are the primary users?
+- Who are the economic buyers (if different)?
+- What are their demographics and psychographics?
+- What jobs are they trying to get done?
+- What are their current behaviors and habits?
+
+#### Customer Access
+- Where can you find these customers?
+- What channels do they use?
+- Who influences their decisions?
+- What is the typical buying journey?
+
+### 3. Value Proposition
+
+#### Core Value
+- What measurable benefit does this provide?
+- How much time/money does it save?
+- What new capabilities does it enable?
+- What emotional benefits does it provide?
+
+#### Differentiation
+- Why is this better than alternatives?
+- What unique advantage do you have?
+- Is this a vitamin (nice) or painkiller (essential)?
+
+### 4. Market Analysis
+
+#### Market Size
+- TAM (Total Addressable Market)
+- SAM (Serviceable Addressable Market)
+- SOM (Serviceable Obtainable Market)
+- Market growth rate
+- Market trends
+
+#### Market Dynamics
+- Is the market growing, stable, or declining?
+- What forces are shaping the market?
+- What regulations apply?
+- Are there network effects or economies of scale?
+
+### 5. Competitive Analysis
+
+#### Direct Competitors
+- Who else solves this exact problem?
+- What are their strengths and weaknesses?
+- What is their market position?
+- How are they differentiated?
+
+#### Indirect Competitors
+- What alternative solutions exist?
+- What is the "do nothing" option?
+- What substitute products exist?
+
+#### Competitive Advantages
+- What can you do that competitors cannot?
+- What moats can you build? (network effects, data, brand, patents)
+- How defensible is your position?
+
+### 6. Business Model
+
+#### Revenue Model
+- How will you make money?
+- What is the pricing strategy?
+- What is the expected LTV (Lifetime Value)?
+- What are the unit economics?
+
+#### Cost Structure
+- What are the fixed costs?
+- What are the variable costs?
+- What is the gross margin?
+- What is the path to profitability?
+
+#### Scalability
+- Do economics improve with scale?
+- What are the bottlenecks to growth?
+- Can this be automated?
+
+### 7. Go-to-Market Strategy
+
+#### Customer Acquisition
+- What channels will you use?
+- What is the expected CAC (Customer Acquisition Cost)?
+- What is the sales cycle length?
+- Can this be product-led or requires sales?
+
+#### Initial Traction
+- How will you get your first 10 customers?
+- What is the wedge into the market?
+- Can you start with a niche and expand?
+
+### 8. Risk Assessment
+
+#### Assumptions to Test
+List key assumptions:
+1. [Assumption about customer problem]
+2. [Assumption about willingness to pay]
+3. [Assumption about acquisition channel]
+4. [Assumption about technical feasibility]
+
+Prioritize by: Impact if wrong × Uncertainty
+
+#### Risks
+- **Market Risk**: Will customers buy this?
+- **Technical Risk**: Can it be built?
+- **Execution Risk**: Can the team deliver?
+- **Competitive Risk**: Will competitors copy this?
+- **Regulatory Risk**: Are there legal/compliance hurdles?
+- **Timing Risk**: Is the market ready?
+
+### 9. MVP Definition
+
+#### Core Features
+What is the minimum feature set that delivers value?
+- Must-have features
+- Nice-to-have features (defer)
+- Features to explicitly exclude
+
+#### Success Criteria
+- What metrics indicate product-market fit?
+- What engagement rates are acceptable?
+- What retention rates are needed?
+- What NPS score indicates satisfaction?
+
+### 10. Validation Experiments
+
+#### Problem Validation
+- Customer interviews (20-30 interviews)
+- Surveys
+- Observation of current behavior
+- Landing page with email signup
+
+#### Solution Validation
+- Mockups or prototypes
+- Concierge MVP (manual delivery)
+- Wizard of Oz (fake automation)
+- Pre-sales or crowdfunding
+
+#### Willingness to Pay
+- Price sensitivity testing
+- Letters of intent
+- Pilot customers
+- Early adopter sales
+
+### 11. Decision Framework
+
+#### Go Signals (Proceed)
+- Clear, acute customer pain
+- Large addressable market
+- Unique, defensible advantage
+- Reasonable path to acquisition
+- Positive unit economics possible
+- Team has relevant expertise
+
+#### No-Go Signals (Pivot or Stop)
+- Problem is not painful enough
+- Market is too small or declining
+- No differentiation from competitors
+- Acquisition cost exceeds LTV
+- Regulatory or technical blockers
+- Team lacks critical skills
+
+## Output Format
+
+### Executive Summary
+**Recommendation:** [Go / No-Go / Needs More Validation]
+**Key Strengths:** [2-3 points]
+**Key Risks:** [2-3 points]
+
+### Detailed Analysis
+
+#### Problem-Solution Fit
+[Analysis]
+
+#### Market Opportunity
+[Analysis]
+
+#### Competitive Position
+[Analysis]
+
+#### Business Model Viability
+[Analysis]
+
+### Critical Assumptions to Test
+1. [Assumption]
+   - **Risk if Wrong:** High/Medium/Low
+   - **Validation Method:** [How to test]
+2. [Assumption]
+   ...
+
+### Recommended Next Steps
+1. [Specific validation experiment]
+2. [Next action]
+3. [Decision checkpoint]
+
+### MVP Specification
+[Minimum viable product definition]
+
+## Definition of Done
+- Problem is clearly articulated
+- Market opportunity is quantified
+- Competitors are analyzed
+- Critical assumptions are identified
+- Validation experiments are proposed
+- Clear recommendation is made
+
+
+REQUIRED INPUTS:
+
+- business_idea (string, REQUIRED): Description of the business idea
+- target_market (string, REQUIRED): Who the customers are
+
+
+QUALITY CHECKS:
+
+- Problem is clearly defined
+- Market size is estimated
+- Competitors are identified
+- Critical assumptions are listed
+- Validation experiments are proposed
+- Clear recommendation is provided

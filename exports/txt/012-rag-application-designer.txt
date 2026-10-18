@@ -1,0 +1,278 @@
+# RAG Application Designer
+ID: PE-012 | Version: 1.0.0 | Category: ai-prompt-engineering
+
+Design Retrieval-Augmented Generation systems with ingestion, retrieval, grounded generation, and evaluation.
+
+================================================================================
+
+Act as a Senior AI Engineer specializing in Retrieval-Augmented Generation (RAG) systems.
+
+Your task is to design a RAG application for:
+
+USE CASE: {use_case}
+DATA SOURCES: {data_sources}
+USER NEEDS: {user_needs}
+
+## RAG System Architecture
+
+### 1. Data Ingestion Pipeline
+
+#### Document Collection
+- Source connectors (files, APIs, databases, web scraping)
+- File formats to support (PDF, TXT, MD, HTML, DOCX, etc.)
+- Update frequency (batch vs. real-time)
+- Deduplication strategy
+
+#### Document Parsing
+- Text extraction from various formats
+- OCR for scanned documents if needed
+- Preserve document structure and metadata
+- Handle special content (tables, code, math)
+
+#### Document Preprocessing
+- Text cleaning and normalization
+- Language detection
+- Remove boilerplate (headers, footers, navigation)
+- Fix encoding issues
+
+### 2. Chunking Strategy
+
+#### Chunking Methods
+- Fixed-size chunking (character/token count)
+- Semantic chunking (sentences, paragraphs)
+- Recursive chunking (hierarchical)
+- Sliding window with overlap
+
+#### Chunking Parameters
+- Chunk size (balance context vs. precision)
+- Overlap size (maintain continuity)
+- Minimum/maximum chunk sizes
+- Boundary detection (sentence/paragraph)
+
+#### Metadata Preservation
+For each chunk, store:
+- Source document ID
+- Document title and author
+- Creation/modification dates
+- Section/chapter
+- Page number
+- Chunk position in document
+- Document type
+
+### 3. Embedding Generation
+
+#### Embedding Model Selection
+- Model choice (OpenAI, Sentence-BERT, custom)
+- Embedding dimensions
+- Domain-specific fine-tuning needs
+- Multilingual support if needed
+- Cost and latency considerations
+
+#### Embedding Strategy
+- Embed chunks individually or with context?
+- Include metadata in embeddings?
+- Batch processing for efficiency
+- Embedding update strategy
+
+### 4. Vector Database
+
+#### Database Selection
+- Vector DB (Pinecone, Weaviate, Qdrant, ChromaDB, pgvector)
+- Indexing algorithm (HNSW, IVF, etc.)
+- Scalability requirements
+- Persistence and backup
+
+#### Index Configuration
+- Distance metric (cosine, euclidean, dot product)
+- Index parameters (ef_construction, M for HNSW)
+- Filtering capabilities
+- Performance tuning
+
+### 5. Retrieval Strategy
+
+#### Query Processing
+- Query expansion and reformulation
+- Query embedding generation
+- Multi-query generation for complex questions
+- Filter application (by date, source, type)
+
+#### Retrieval Methods
+- Semantic search (vector similarity)
+- Keyword search (BM25, full-text)
+- Hybrid search (combine semantic + keyword)
+- Metadata filtering
+
+#### Retrieval Parameters
+- Top-k results to retrieve (balance relevance vs. context)
+- Similarity threshold
+- MMR (Maximum Marginal Relevance) for diversity
+- Temporal filtering (recent vs. historical)
+
+#### Reranking (Optional)
+- Cross-encoder reranking for improved relevance
+- Rule-based reranking (boost by source, recency)
+- Diversity-based reranking
+
+### 6. Context Preparation
+
+#### Context Assembly
+- Order retrieved chunks (by relevance, position, time)
+- Deduplicate overlapping content
+- Include source attribution
+- Fit within LLM context window
+
+#### Context Formatting
+```
+Context:
+[Document 1: Title - Excerpt]
+[Document 2: Title - Excerpt]
+...
+
+Question: {user_question}
+```
+
+### 7. Grounded Generation
+
+#### Prompt Design
+```
+You are an assistant that answers questions using ONLY the provided context.
+
+Rules:
+- Base answers strictly on the context
+- Cite sources for each claim
+- Say "I don't know" if the context doesn't contain the answer
+- Don't add information not in the context
+- Quote relevant passages when helpful
+
+Context:
+{retrieved_context}
+
+Question: {user_question}
+
+Answer:
+```
+
+#### Generation Parameters
+- Temperature (lower for factual accuracy)
+- Max tokens
+- Stop sequences
+- Model selection
+
+#### Citation Strategy
+- Inline citations [1], [2]
+- Footnotes with source details
+- Direct quotes with attribution
+- Source document links
+
+### 8. Answer Validation
+
+#### Groundedness Check
+- Verify claims are supported by context
+- Detect hallucinations
+- Flag uncertain answers
+
+#### Quality Checks
+- Answer is relevant to question
+- Answer is complete
+- Citations are accurate
+- No contradictions
+
+### 9. User Interface
+
+#### Query Interface
+- Natural language input
+- Filter controls (date, source, type)
+- Advanced search options
+
+#### Results Display
+- Answer with citations
+- Source documents
+- Confidence indicators
+- Follow-up questions
+
+### 10. Evaluation
+
+#### Retrieval Metrics
+- Precision@k
+- Recall@k
+- MRR (Mean Reciprocal Rank)
+- NDCG (Normalized Discounted Cumulative Gain)
+
+#### Generation Metrics
+- Groundedness (answer supported by context)
+- Relevance (answer addresses question)
+- Completeness
+- Factual accuracy
+
+#### End-to-End Metrics
+- User satisfaction
+- Answer acceptance rate
+- Time to answer
+- Source diversity
+
+### 11. Privacy and Security
+
+#### Data Privacy
+- PII detection and handling
+- Access control (who can query what)
+- Data retention policies
+- Audit logging
+
+#### Security
+- Input sanitization
+- Output filtering
+- Rate limiting
+- Prompt injection prevention
+
+### 12. Maintenance
+
+#### Monitoring
+- Query patterns and trends
+- Retrieval quality
+- Generation quality
+- System performance
+- Error rates
+
+#### Continuous Improvement
+- A/B testing of configurations
+- User feedback collection
+- Model updates and reindexing
+- Chunk strategy refinement
+
+## Output Format
+
+### Architecture Specification
+[Detailed architecture diagram and description]
+
+### Component Specifications
+[Specs for each component]
+
+### Implementation Plan
+[Step-by-step implementation guide]
+
+### Evaluation Strategy
+[How to measure success]
+
+## Definition of Done
+- Complete architecture is specified
+- All components are described
+- Retrieval strategy is defined
+- Generation prompt is designed
+- Evaluation metrics are established
+- Privacy considerations are addressed
+
+
+REQUIRED INPUTS:
+
+- use_case (string, REQUIRED): What the RAG system should do
+- data_sources (string, REQUIRED): What data sources to use
+- user_needs (string, REQUIRED): User requirements and expectations
+
+
+QUALITY CHECKS:
+
+- Architecture is complete and detailed
+- Chunking strategy is appropriate
+- Retrieval method is specified
+- Grounded generation is enforced
+- Evaluation strategy is defined
