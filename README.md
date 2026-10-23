@@ -2,6 +2,22 @@
 
 A professional, open-source library of 20+ high-quality, reusable prompts for software engineering, AI systems, business productivity, and specialized workflows. Includes a Python CLI for searching, validating, rendering, and exporting prompts.
 
+Repository: https://github.com/0xyz-exe/prompt-engineering-toolkit
+
+## Screenshots
+
+### CLI Interactive Search & Prompt Explorer
+![CLI Search](docs/screenshots/01_cli_search.png)
+
+### Prompt Template Rendering & Placeholders
+![Prompt Rendering](docs/screenshots/02_prompt_render.png)
+
+### JSON Schema Validation & Verification
+![Schema Validation](docs/screenshots/03_schema_validation.png)
+
+### Markdown & Text Export Pipeline
+![Export Pipeline](docs/screenshots/04_export_prompts.png)
+
 ## Features
 
 - **20+ Professional Prompts** organized into 4 categories
