@@ -6,16 +6,20 @@ Repository: https://github.com/0xyz-exe/prompt-engineering-toolkit
 
 ## Screenshots
 
-### CLI Interactive Search & Prompt Explorer
+### 1. CLI Interactive Search & Prompt Explorer
+Pencarian interaktif katalog prompt berdasarkan kategori dan tag teknis dengan ringkasan deskripsi, ID unik (PE-001 hingga PE-020), dan indikator kecocokan:
 ![CLI Search](docs/screenshots/01_cli_search.png)
 
-### Prompt Template Rendering & Placeholders
+### 2. Prompt Template Rendering & Placeholders
+Mesin rendering template prompt yang aman dengan substitusi variabel placeholder terverifikasi, validasi skema input JSON, dan kalkulasi perkiraan token:
 ![Prompt Rendering](docs/screenshots/02_prompt_render.png)
 
-### JSON Schema Validation & Verification
+### 3. JSON Schema Validation & Verification
+Pipeline validasi ketat pustaka prompt terhadap `schemas/prompt.schema.json` untuk memastikan kepatuhan struktur atribut, tipe data, dan aturan kualitas:
 ![Schema Validation](docs/screenshots/03_schema_validation.png)
 
-### Markdown & Text Export Pipeline
+### 4. Markdown & Text Export Pipeline
+Pipa ekspor multi-format untuk menghasilkan dokumen Markdown beranotasi YAML frontmatter lengkap serta template teks bersih (.txt) siap pakai:
 ![Export Pipeline](docs/screenshots/04_export_prompts.png)
 
 ## Features
